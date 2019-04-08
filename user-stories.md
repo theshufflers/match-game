@@ -6,6 +6,8 @@ Developer
 3.	As a developer, I would like to include animations so that I can showcase my animation skills.
 4.	As a developer I want to meet the requirements of the project!!!
 5.	As a developer I want to use grid for overall layout and flexbox for small, inner elements styles so that application will be responsive. 
+6.	As a developer I want to the results to persist between pages so the information is stored in local storage so I can access the information on other pages within the application.
+7.	As a developer I want to see a unified style and color scheme  so the site is visually pleasurable to look at.
 
 User  - match game user stories
 1.	As a user of the application, I want to play game with a singular game topic [JavaScript] so that I can have a simple game experience. 
@@ -27,8 +29,7 @@ User  - match game user stories
 17.	As a user, I want to see the number of correct answers and the number of incorrect answers in my results. 
 18.	As a user, I want to be able to navigate to the about-me.html page and see a list of the member of the programming team. 
 19.	As a user, I want see active github and linkedin links that will redirect the user to each of the individual members accounts.
-20.	As a developer I want to the results to persist between pages so the information is stored in local storage so I can access the information on other pages within the application.
-21.	As a developer I want to see a unified style and color scheme  so the site is visually pleasurable to look at.
+20.	As a user, I want to have the cards be shuffled when I go to replay the game.
 
 
 ##Stretch Goals
