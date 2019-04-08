@@ -36,12 +36,13 @@ User  - match game user stories
 
 Stretch Goals: [Listed from easiest to more difficult]
 1.	As a user of the game, I want to input my name so that the site is more personal
-2.	As a user, I want my final quiz results displayed in a chart so I can visualize the data
-3.	As a game user I want to be able to change the topic so I can learn additional topics 
-4.	As a user I want to be able to change the card decorations so that I can interact with the site more.
-5.	As a developer, I want a to be able to change the color theme so that I can 
+2.  As a user, I want to be able to change the name and have a high score board to compare which players have the highest score.
+3.	As a user, I want my final quiz results displayed in a chart so I can visualize the data
+4.	As a game user I want to be able to change the topic so I can learn additional topics 
+5.	As a user I want to be able to change the card decorations so that I can interact with the site more.
+6.	As a developer, I want a to be able to change the color theme so that I can 
 change the colors so I can showcase my programming skills.
-6.	As a user, I want to see a timer which tracks the amount of time it took me to play the game. 
-7.	As user of the application, I want to select my difficulty and number of cards in play so that I can change the difficulty of the game. 
-8.	As a developer I want to add animations and visual effects to the website so the site is nice to interact with. 
+7.	As a user, I want to see a timer which tracks the amount of time it took me to play the game. 
+8.	As user of the application, I want to select my difficulty and number of cards in play so that I can change the difficulty of the game. 
+9.	As a developer I want to add animations and visual effects to the website so the site is nice to interact with. 
 
