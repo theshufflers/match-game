@@ -17,9 +17,14 @@ header h1 {
   margin-right: 25%;
 }
 
+nav a{
+  text-decoration: none;
+  margin-left: 50px;
+
+}
 
 .profile-card {
-  width: 500px;
+  width: 70%;
   height: 150px;
   background-color: grey;
   display: flex;
@@ -29,16 +34,21 @@ header h1 {
 }
 
 .profile-img {
-  width: 150px;
-  height: 100px;
-  margin-right: 20px;
+  width: 10%;
+  height: 70%;
+  margin: 3%;
+  border-radius: 60px;
+
 }
 
 i.fab.fa-github{
   color: black;
+  font-size: 40px;
+  margin-right: 30%;
 }
 i.fab.fa-linkedin{
   color:black;
+  font-size: 40px;
 }
 
 
