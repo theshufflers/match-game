@@ -39,7 +39,8 @@ function CARDS(id, imageURL, pairID, inPlay, showing) {
   this.inPlay = inPlay;
   this.showing = showing;
   
-  CARDS_ARR.push(id);
+  CARDS_ARR.push(this);
+  this.render();
 }
 
 CARDS.prototype.toggleSelect = function() {
@@ -57,6 +58,8 @@ CARDS.prototype.render = function() {
   img.setAttribute('src', 'https://via.placeholder.com/200x250');
   div.appendChild(img);
 };
+
+console.log(CARDS_ARR);
 
 function Compare() {
   // Compare function
@@ -89,10 +92,8 @@ function createCards () {
 // -------------------------------------------------------
 
 function startGame() {
-  CreateCards();
-  console.log('start game');
-
   createCards();
+
 }
 
 // ------------------------------------------------------
