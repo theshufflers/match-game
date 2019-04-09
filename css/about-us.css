@@ -22,6 +22,9 @@ nav a{
   margin-left: 50px;
 
 }
+.profile-section{
+  margin-right: 10%;
+}
 
 .profile-card {
   width: 70%;
@@ -34,7 +37,7 @@ nav a{
 }
 
 .profile-img {
-  width: 10%;
+  width: 15%;
   height: 70%;
   margin: 3%;
   border-radius: 60px;
@@ -71,4 +74,14 @@ i.fab.fa-linkedin{
 footer {
   border-top: 1px solid black;
   height: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+footer img{
+  width: 40%;
 }
