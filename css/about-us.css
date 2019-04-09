@@ -28,11 +28,19 @@ header h1 {
   margin-left: 25%;
 }
 
-.profile-card .profile-img {
+.profile-img {
   width: 150px;
   height: 100px;
   margin-right: 20px;
 }
+
+i.fab.fa-github{
+  color: black;
+}
+i.fab.fa-linkedin{
+  color:black;
+}
+
 
 .profile-card article {
   margin-top: 20px;
