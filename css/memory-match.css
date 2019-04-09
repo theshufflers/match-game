@@ -1,0 +1,33 @@
+#container {
+  border: 1px solid black;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+}
+
+header button {
+  margin-right: 25%;
+  margin-left: 25px;
+}
+
+#cards-section {
+  margin-top: 50px;
+  border: 1px solid black;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  margin-right: 300px;
+  margin-left: 300px;
+  
+}
+
+#cards-section img {
+ margin-top: 25px;
+}
+
+footer {
+  height: 100px;
+}
