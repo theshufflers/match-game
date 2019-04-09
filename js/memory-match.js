@@ -31,15 +31,15 @@ var CARDS_ARR = [];
 //  Defined Functions
 // -------------------------------------------------------
 
+
 function CARDS(id, imageURL, pairID, inPlay, showing) {
   this.id = id;
   this.img = imageURL;
   this.pairID = pairID;
   this.inPlay = inPlay;
   this.showing = showing;
-
-  CARDS_ARR.push(this);
-  this.render();
+  
+  CARDS_ARR.push(id);
 }
 
 CARDS.prototype.toggleSelect = function() {
@@ -75,7 +75,6 @@ function Shuffle() {
 }
 
 //Card click Event Listenter - Click
-
 //Reset game Event listener - Click
 
 //Create Cards function
@@ -90,6 +89,9 @@ function createCards () {
 // -------------------------------------------------------
 
 function startGame() {
+  CreateCards();
+  console.log('start game');
+
   createCards();
 }
 
@@ -101,3 +103,6 @@ startGame();
 // ------------------------------------------------------
 // Local Storage
 // -------------------------------------------------------
+
+// -------------------------------------------------------
+
