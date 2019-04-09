@@ -14,12 +14,13 @@ var DATA = [
   ['g', 'https://via.placeholder.com/200x250', '4', false, false],
   ['h', 'https://via.placeholder.com/200x250', '4', false, false],
   ['i', 'https://via.placeholder.com/200x250', '5', false, false],
-]
+];
 
 // ------------------------------------------------------
 // Global Variables
 // -------------------------------------------------------
-var missedQuesses = 0;
+
+var missedGuesses = 0;
 var matches = 0;
 var peeks = 0;
 
@@ -30,7 +31,8 @@ var CARDS_ARR = [];
 //  Defined Functions
 // -------------------------------------------------------
 
-function CARDS(id, imageURL, pairID, inPlay, showing){
+
+function CARDS(id, imageURL, pairID, inPlay, showing) {
   this.id = id;
   this.img = imageURL;
   this.pairID = pairID;
@@ -40,42 +42,45 @@ function CARDS(id, imageURL, pairID, inPlay, showing){
   CARDS_ARR.push(id);
 }
 
-CARDS.prototype.selectUnselectCard(){
-// Select Unselect Card function
-}
+CARDS.prototype.toggleSelect = function() {
+  // toggle function
+};
 
-CARDS.prototype.render(){
-// render function
-}
+CARDS.prototype.render = function() {
+  let cardsSection = document.getElementById('cards-section');
 
-CARDS.prototype.toggleSelect(){
-// toggle function
-}
+  let div = document.createElement('div');
+  div.setAttribute('id', this.id);
+  cardsSection.appendChild(div);
 
-function CorrectAnswer(){
-  // Correct Answer function
-}
+  let img = document.createElement('img');
+  img.setAttribute('src', 'https://via.placeholder.com/200x250');
+  div.appendChild(img);
+};
 
-function WrongAnswer(){
-  // Wrong Answer function
-}
-
-function Compare(){
+function Compare() {
   // Compare function
 }
 
-function Shuffle(){
+function CorrectAnswer() {
+  // Correct Answer function
+}
+
+function WrongAnswer() {
+  // Wrong Answer function
+}
+
+function Shuffle() {
   // Shuffle Function
 }
 
 //Card click Event Listenter - Click
-
 //Reset game Event listener - Click
 
 //Create Cards function
-function CreateCards (){
+function createCards () {
   for (var i = 0; i < DATA.length; i++){
-    new CARDS(DATA[i].id, DATA[i].imageURL, DATA[i].pairID, DATA[i].inPlay, DATA[i].showing);
+    new CARDS(DATA[i][0], DATA[i][1], DATA[i][2], DATA[i][3], DATA[i][4]);
   }
 }
 
@@ -86,6 +91,8 @@ function CreateCards (){
 function startGame() {
   CreateCards();
   console.log('start game');
+
+  createCards();
 }
 
 // ------------------------------------------------------
@@ -95,5 +102,7 @@ startGame();
 
 // ------------------------------------------------------
 // Local Storage
+// -------------------------------------------------------
+
 // -------------------------------------------------------
 
