@@ -1,3 +1,49 @@
-body{
-    background-color: hotpink;
+#container {
+  display: grid;
+  border: 1px solid black;
+}
+
+header {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#matchGameSummary {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+
+#matchGameSummary article {
+  width: 400px;
+}
+
+#matchGameSummary article h3 {
+  font-size: 24px;
+}
+
+#matchGameSummary article p {
+  font-size: 16px;
+}
+
+#gameStart {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+footer {
+  border-top: 1px solid black;
+  height: 100px;
 }

@@ -1,0 +1,56 @@
+#container {
+  display: grid;
+  border: 1px solid black;
+}
+
+header {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+
+.profile-card {
+  width: 500px;
+  height: 150px;
+  background-color: grey;
+  display: flex;
+  flex-direction: row;
+  margin-top: 25px;
+  margin-left: 25%;
+}
+
+.profile-card .profile-img {
+  width: 150px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.profile-card article {
+  margin-top: 20px;
+}
+
+.profile-card article p {
+  margin-bottom: 35px;
+}
+
+.profile-card article figure {
+  margin-left: 25%;
+}
+
+.profile-card article img {
+  margin-left: 10px;
+}
+
+footer {
+  border-top: 1px solid black;
+  height: 100px;
+}
