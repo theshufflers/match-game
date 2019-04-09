@@ -1,6 +1,6 @@
-## Group Agreement
+# Group Agreement
 
-##Conflict Plan
+#Conflict Plan
 Our group agrees to resolve, conflicts in the following manner:
 	We will address conflicts as a group regardless if the conflict arises between two individuals. 
 
@@ -16,7 +16,7 @@ If the conflict veers towards personal attacks and is not about the work or we a
 
 We agree that we will work after hours, if an individual decides to work after hours that is on a volunteer basis if we do not meet the end goals for that day;
 
-##Communication Plan
+#Communication Plan
 How will you communicate after hours and on the weekend? 
     We will be using our Slack group channel for communication in and outside of class.
 
@@ -24,3 +24,26 @@ What is your strategy for ensuring everyone's voices are heard?         Utilizin
 
 How will you ensure that you are creating a safe environment where everyone feels comfortable speaking up? 
     We agree to communicated in a respectful manner and listen to everyone’s idea. 
+
+
+#Teams
+
+#Code Review Team
+Mike
+Mark
+
+#Task Team
+Matt
+Tia
+
+#Animation Team
+Mob
+
+#Layout Team
+Tia
+
+#Content Team
+Mob
+
+#Functionality Team
+Mike
