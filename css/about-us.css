@@ -12,6 +12,7 @@ header {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  background-color: whitesmoke;
 }
 
 header h1 {
@@ -53,7 +54,7 @@ nav a{
 .profile-card h2{
   /* color: #007434; */
   color: #1D65A6;
-  font-size: 18px;
+  font-size: 36px;
   font-weight: bold;
 }
 .profile-card p{
@@ -99,6 +100,17 @@ i.fab.fa-linkedin{
   margin-left: 10px;
 }
 
+.zoom{
+  transition: transform .2s;
+}
+
+.zoom:hover{
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+
 footer {
   height: 100px;
   display: flex;
@@ -106,6 +118,7 @@ footer {
   flex-wrap: nowrap;
   justify-content: space-evenly;
   align-items: center;  
+  background-color: whitesmoke;
 }
 
 footer img{
@@ -121,5 +134,26 @@ footer a{
 
 a:hover{
   color: #007434;
+
+}
+
+/* Responsive Screen Size CSS Rules */
+
+@media screen and (max-width: 700px) {
+  body {
+    background-color: pink;
+  }
+
+  .profile-img{
+    width: 30%;
+    margin-top: 7%;
+  }
+
+  .profile-card article figure {
+    margin-left: -35%;
+    margin-bottom: 5%;
+  }
+
+  
 
 }
