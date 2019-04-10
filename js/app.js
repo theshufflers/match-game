@@ -77,6 +77,15 @@ function resetState(){
 //   }
 // }
 
+function getGamesArr{
+  var gamesArr = JSON.parse(localStorage.getItem('Games'));
+ for( var i = 0; i < gamesArr.length; i++){
+  peeks = GamesArr[i][0];
+  missedGuesses = GamesArr[i][1];
+  misses = GamesArr [i][2];
+}
+}
+
 function getPeeks(){
   //get the peeks
 }

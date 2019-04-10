@@ -143,11 +143,10 @@ function Shuffle() {
 function winGame() {
   //Save stuff to local storage
   var gamesArr = JSON.parse(localStorage.getItem('Games'));
-  console.log('hello');
-  console.log(gamesArr);
   var data = [peeks, missedGuesses, guesses];
   gamesArr.push(data);
   console.log(gamesArr);
+  localStorage.setItem('Games',JSON.stringify(gamesArr));
 
   //create popup
   let container = document.getElementById('container');
