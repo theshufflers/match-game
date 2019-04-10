@@ -100,6 +100,17 @@ i.fab.fa-linkedin{
   margin-left: 10px;
 }
 
+.zoom{
+  transition: transform .2s;
+}
+
+.zoom:hover{
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+
 footer {
   height: 100px;
   display: flex;
