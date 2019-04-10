@@ -136,3 +136,24 @@ a:hover{
   color: #007434;
 
 }
+
+/* Responsive Screen Size CSS Rules */
+
+@media screen and (max-width: 700px) {
+  body {
+    background-color: pink;
+  }
+
+  .profile-img{
+    width: 30%;
+    margin-top: 7%;
+  }
+
+  .profile-card article figure {
+    margin-left: -35%;
+    margin-bottom: 5%;
+  }
+
+  
+
+}
