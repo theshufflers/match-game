@@ -44,60 +44,90 @@ function CARDS(id, imageURL, pairId, inPlay, showing) {
 
 CARDS.prototype.toggleSelect = function(event) {
   event.preventDefault();
-
   var target = event.target;
+  let element;
 
-  if (COMPARE_ARR < 2) {
-    if (COMPARE_ARR[0] && COMPARE_ARR[0][0] === CARDS_OBJ[target.id].pairId[0] && COMPARE_ARR[0][1] === CARDS_OBJ[target.id].pairId[1]) {
-      COMPARE_ARR.shift();
-      CARDS_OBJ[target.id].inPlay = false;
-      CARDS_OBJ[target.id].showing = false;
+  if (COMPARE_ARR.length < 2) {
+    if (target.className === 'flip-card-inner') {
+      element = target;
     } else {
-      COMPARE_ARR.push(CARDS_OBJ[target.id].pairId);
-      CARDS_OBJ[target.id].inPlay = true;
-      CARDS_OBJ[target.id].showing = true;
+      element = target.parentElement;
     }
-  } else {
-    COMPARE_ARR.push(CARDS_OBJ[target.id].pairId);
-    CARDS_OBJ[target.id].inPlay = true;
-    CARDS_OBJ[target.id].showing = true;
-    Compare();
+    element.classList.toggle('is-flipped');
   }
+
+  if (COMPARE_ARR.length < 2) {
+    if (COMPARE_ARR.length < 1) {
+      COMPARE_ARR.push(CARDS_OBJ[element.id].pairId);
+    } else if (COMPARE_ARR[0][0] === CARDS_OBJ[element.id].pairId[0] && COMPARE_ARR[0][1] === CARDS_OBJ[element.id].pairId[1]) {
+      COMPARE_ARR.shift();
+    } else {
+      COMPARE_ARR.push(CARDS_OBJ[element.id].pairId);
+      setTimeout(function() {
+        compare();
+      }, 500);
+    }
+  }
+  // RE-FLIP HERE???
 };
 
 CARDS.prototype.render = function() {
   var cardsSection = document.getElementById('cards-section');
 
   var div = document.createElement('div');
+  div.setAttribute('class', 'flip-card');
   cardsSection.appendChild(div);
+
+  var divInner = document.createElement('div');
+  divInner.setAttribute('id', this.id);
+  divInner.setAttribute('class', 'flip-card-inner');
+  div.appendChild(divInner);
+
+  var divFront = document.createElement('div');
+  divFront.setAttribute('class', 'flip-card-front');
+  divInner.appendChild(divFront);
 
   var img = document.createElement('img');
   img.setAttribute('src', 'https://via.placeholder.com/200x250');
-  img.setAttribute('id', this.id);
-  div.appendChild(img);
+  img.setAttribute('class', 'flip-card-back');
+  divInner.appendChild(img);
 
-  img.addEventListener('click', this.toggleSelect);
+  divInner.addEventListener('click', this.toggleSelect);
 };
 
-function Compare() {
-  // Compare function
+function compare() {
+  let firstEl = document.getElementsByClassName('is-flipped')[0];
+  let secondEl = document.getElementsByClassName('is-flipped')[1];
 
   if (COMPARE_ARR[0][0] === COMPARE_ARR[1][0]) {
-    console.log('RIGHT!');
+    COMPARE_ARR.shift();
+    COMPARE_ARR.shift();
+
+    // add dark screen
+    firstEl.removeEventListener('click', CARDS_OBJ[firstEl.id].toggleSelect);
+    secondEl.removeEventListener('click', CARDS_OBJ[firstEl.id].toggleSelect);
+
+    let darkDivOne = document.createElement('div');
+    darkDivOne.setAttribute('class', 'dark-div');
+    firstEl.appendChild(darkDivOne);
+
+    firstEl.classList.replace('is-flipped', 'flipped-perm');
+    secondEl.classList.replace('is-flipped', 'flipped-perm');
+
+    let darkDivTwo = document.createElement('div');
+    darkDivTwo.setAttribute('class', 'dark-div');
+    secondEl.appendChild(darkDivTwo);
+
+    // add green border
   } else {
-    console.log('WRONG');
+    firstEl.classList.toggle('is-flipped');
+    secondEl.classList.toggle('is-flipped');
+
+    COMPARE_ARR.shift();
+    COMPARE_ARR.shift();
+
+    //shake animation
   }
-
-  COMPARE_ARR.shift();
-  COMPARE_ARR.shift();
-}
-
-function CorrectAnswer() {
-  // Correct Answer function
-}
-
-function WrongAnswer() {
-  // Wrong Answer function
 }
 
 function Shuffle() {
@@ -118,6 +148,10 @@ function createCards () {
 // -------------------------------------------------------
 
 function startGame() {
+  //Does previous game exist?
+
+  //if not
+  //shuffle
   createCards();
 }
 
