@@ -65,6 +65,7 @@ a:hover{
 
 #matchGameSummary article p {
   font-size: 16px;
+  color: #007434;
 }
 
 #gameOptions{
@@ -142,4 +143,20 @@ i.fab.fa-github{
   body {
     background-color: pink;
   }
+
+  #matchGameSummary {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10% 20%;
+    background-color: #72A2C0;
+    border-radius: 40%;
+    height: 85%;
+    width: 75%; 
+  }
+
+  #matchGameSummary h2 {
+    margin: 10% 10%;
+    color: #1D65A6;
+    font-size: 36px;
 }
