@@ -1,3 +1,6 @@
+body{
+  background-color: #1D65A6;
+}
 #container {
   display: grid;
   border: 1px solid black;
@@ -16,6 +19,7 @@ header h1 {
   margin-left: 5%;
   margin-right: 25%;
   font-size: 36px;
+  color: #F2A104;
 }
 
 nav a{
@@ -30,19 +34,39 @@ nav a{
 
 .profile-card {
   width: 70%;
-  height: 150px;
-  background-color: grey;
+  height: 250px;
+  background-color: #72A2C0;
   display: flex;
   flex-direction: row;
   margin-top: 25px;
   margin-left: 25%;
+  border-radius: 60%;
+  border-radius: 60%;
+}
+
+.profile-card article{
+  margin-top: 4%;
+  margin-right: 10%;
+}
+
+.profile-card h2{
+  /* color: #007434; */
+  color: #1D65A6;
+  font-size: 18px;
+  font-weight: bold;
+}
+.profile-card p{
+  color: #007434;
+  margin-top: 2%;
 }
 
 .profile-img {
-  width: 10%;
+  width: 15%;
   height: 70%;
   margin: 3%;
   border-radius: 60px;
+  margin-left: 13%;
+  margin-top: 4%;
 
 }
 
