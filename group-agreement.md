@@ -16,6 +16,8 @@ If the conflict veers towards personal attacks and is not about the work or we a
 
 We agree that we will work after hours, if an individual decides to work after hours that is on a volunteer basis if we do not meet the end goals for that day;
 
+If a group member is missing, out of contact with the group, fails to show up to class, the group will make a best effor to contact that memeber but will continue with work. Upon rejoining the group, the aforementioned member will assume resonsibility to fingure out what aspects of the project they can contribute to by referenceing the project todo tasks listed in the group project trello page.
+
 #Communication Plan
 How will you communicate after hours and on the weekend? 
     We will be using our Slack group channel for communication in and outside of class.
