@@ -3,7 +3,6 @@ body{
 }
 #container {
   display: grid;
-  border: 1px solid black;
 }
 
 header {
@@ -101,7 +100,6 @@ i.fab.fa-linkedin{
 }
 
 footer {
-  border-top: 1px solid black;
   height: 100px;
   display: flex;
   flex-direction: row;
