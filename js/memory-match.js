@@ -23,6 +23,7 @@ var DATA = [
 var missedGuesses = 0;
 var matches = 0;
 var peeks = 0;
+var counter = 0;
 
 var COMPARE_ARR = [];
 var CARDS_OBJ = {};
@@ -35,8 +36,6 @@ function CARDS(id, imageURL, pairId, inPlay, showing) {
   this.id = id;
   this.img = imageURL;
   this.pairId = pairId;
-  this.inPlay = inPlay;
-  this.showing = showing;
 
   CARDS_OBJ[id] = this;
   this.render();
@@ -68,7 +67,6 @@ CARDS.prototype.toggleSelect = function(event) {
       }, 500);
     }
   }
-  // RE-FLIP HERE???
 };
 
 CARDS.prototype.render = function() {
@@ -118,6 +116,8 @@ function compare() {
     darkDivTwo.setAttribute('class', 'dark-div');
     secondEl.appendChild(darkDivTwo);
 
+    counter++;
+
     // add green border
   } else {
     firstEl.classList.toggle('is-flipped');
@@ -128,13 +128,50 @@ function compare() {
 
     //shake animation
   }
+
+  if (counter === 4) {
+    winGame();
+  }
 }
 
 function Shuffle() {
   // Shuffle Function
 }
 
+function winGame() {
+  //Save stuff to local storage
+
+  //create popup
+  let container = document.getElementById('container');
+
+  let div = document.createElement('div');
+  div.setAttribute('id', 'win-game-popup');
+  container.appendChild(div);
+
+  let h2 = document.createElement('h2');
+  h2.textContent ='CONGRATULATIONS!!! You Finished the game! Hit restart game to play a new round, or go back to see your results.';
+  div.appendChild(h2);
+
+  let aOne = document.createElement('a');
+  aOne.setAttribute('href', '../index.html');
+  div.appendChild(aOne);
+
+  let backButton = document.createElement('button');
+  backButton.textContent = 'Back';
+  aOne.appendChild(backButton);
+
+  let restartButton = document.createElement('button');
+  restartButton.textContent = 'Restart';
+  div.appendChild(restartButton);
+
+  restartButton.addEventListener('click', restart);
+}
+
 //Reset game Event listener - Click
+
+function restart() {
+  console.log('restart');
+}
 
 //Create Cards function
 function createCards () {
