@@ -18,13 +18,15 @@ header {
 header h1 {
   margin-left: 5%;
   margin-right: 25%;
-  font-size: 36px;
+  font-size: 56px;
   color: #F2A104;
 }
 
 nav a{
   text-decoration: none;
   margin-left: 50px;
+  font-size: 26px;
+  color: #F2A104;
 
 }
 
@@ -83,7 +85,7 @@ i.fab.fa-linkedin{
 
 
 .profile-card article {
-  margin-top: 20px;
+  margin-top: 7%;
 }
 
 .profile-card article p {
@@ -112,4 +114,14 @@ footer img{
   margin-left: 50%;
   align-items: center;
   width: 50%;
+  border-radius: 40%;
+}
+
+footer a{
+  margin-right: 25%;
+}
+
+a:hover{
+  color: #007434;
+
 }
