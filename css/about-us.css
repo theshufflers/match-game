@@ -12,6 +12,7 @@ header {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  background-color: whitesmoke;
 }
 
 header h1 {
@@ -53,7 +54,7 @@ nav a{
 .profile-card h2{
   /* color: #007434; */
   color: #1D65A6;
-  font-size: 18px;
+  font-size: 36px;
   font-weight: bold;
 }
 .profile-card p{
@@ -106,6 +107,7 @@ footer {
   flex-wrap: nowrap;
   justify-content: space-evenly;
   align-items: center;  
+  background-color: whitesmoke;
 }
 
 footer img{
