@@ -21,8 +21,8 @@ var DATA = [
 // -------------------------------------------------------
 
 var missedGuesses = 0;
-var matches = 0;
 var peeks = 0;
+var guesses = 0;
 var counter = 0;
 
 var COMPARE_ARR = [];
@@ -59,6 +59,7 @@ CARDS.prototype.toggleSelect = function(event) {
     if (COMPARE_ARR.length < 1) {
       COMPARE_ARR.push(CARDS_OBJ[element.id].pairId);
     } else if (COMPARE_ARR[0][0] === CARDS_OBJ[element.id].pairId[0] && COMPARE_ARR[0][1] === CARDS_OBJ[element.id].pairId[1]) {
+      peeks++;
       COMPARE_ARR.shift();
     } else {
       COMPARE_ARR.push(CARDS_OBJ[element.id].pairId);
@@ -96,7 +97,7 @@ CARDS.prototype.render = function() {
 function compare() {
   let firstEl = document.getElementsByClassName('is-flipped')[0];
   let secondEl = document.getElementsByClassName('is-flipped')[1];
-
+  guesses++;
   if (COMPARE_ARR[0][0] === COMPARE_ARR[1][0]) {
     COMPARE_ARR.shift();
     COMPARE_ARR.shift();
@@ -120,6 +121,7 @@ function compare() {
 
     // add green border
   } else {
+    missedGuesses++;
     firstEl.classList.toggle('is-flipped');
     secondEl.classList.toggle('is-flipped');
 
@@ -140,6 +142,12 @@ function Shuffle() {
 
 function winGame() {
   //Save stuff to local storage
+  var gamesArr = JSON.parse(localStorage.getItem('Games'));
+  console.log('hello');
+  console.log(gamesArr);
+  var data = [peeks, missedGuesses, guesses];
+  gamesArr.push(data);
+  console.log(gamesArr);
 
   //create popup
   let container = document.getElementById('container');
@@ -186,7 +194,9 @@ function createCards () {
 
 function startGame() {
   //Does previous game exist?
-
+  if(!localStorage.getItem('Games')){
+    localStorage.setItem('Games', JSON.stringify([]));
+  }
   //if not
   //shuffle
   createCards();
