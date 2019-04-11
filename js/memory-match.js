@@ -149,7 +149,6 @@ function shuffle() {
   console.log(DATA);
 }
 
-
 function winGame() {
   //Save stuff to local storage
   var gamesArr = JSON.parse(localStorage.getItem('Games'));
@@ -235,10 +234,7 @@ function startGame() {
 
   var resetButton = document.getElementById('reset');
   resetButton.addEventListener('click', reset);
-
-  console.log(CARDS_OBJ);
 }
-
 
 // ------------------------------------------------------
 // Entry Point Storage

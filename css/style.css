@@ -34,9 +34,6 @@ a:hover{
   color: #007434;
 }
 
-
-
-
 #matchGameSummary {
   display: flex;
   flex-direction: row;
@@ -47,7 +44,6 @@ a:hover{
   height: 110%;
   width: 90%;
   margin-left: 3%;
-  
 }
 
 #matchGameSummary img{
@@ -55,10 +51,6 @@ a:hover{
   height: 200%;
   width: 250%;
 }
-
-/* #card{
-  -webkit-animation: card-rotate 2s both infinite;
-} */
 
 #index-card{
   background-color: transparent;
@@ -94,8 +86,6 @@ a:hover{
   border-radius: 20px;
   height: 200%;
   width: 150%;
-
-
 }
 
 .index-flip-card-front{
@@ -129,7 +119,6 @@ text-align: center; */
 #matchGameSummary article {
   margin-left: 10%;
   margin-top: 3%;
-  
 }
 
 #matchGameSummary article h3 {
@@ -193,7 +182,6 @@ footer {
   justify-content: space-evenly;
   align-items: center;  
   background-color: whitesmoke;
-  
 }
 
 footer a{
@@ -262,5 +250,3 @@ Canvas {
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
 }
-
-
