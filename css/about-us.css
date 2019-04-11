@@ -18,14 +18,14 @@ header {
 header h1 {
   margin-left: 5%;
   margin-right: 25%;
-  font-size: 56px;
+  font-size: 72px;
   color: #F2A104;
 }
 
 nav a{
   text-decoration: none;
   margin-left: 50px;
-  font-size: 26px;
+  font-size: 48px;
   color: #F2A104;
 
 }
@@ -54,12 +54,13 @@ nav a{
 .profile-card h2{
   /* color: #007434; */
   color: #1D65A6;
-  font-size: 36px;
+  font-size: 62px;
   font-weight: bold;
 }
 .profile-card p{
   color: #007434;
   margin-top: 2%;
+  font-size: 36px;
 }
 
 .profile-img {
