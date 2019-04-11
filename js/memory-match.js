@@ -21,8 +21,9 @@ var DATA = [
 // -------------------------------------------------------
 
 var missedGuesses = 0;
-var matches = 0;
 var peeks = 0;
+var guesses = 0;
+var counter = 0;
 
 var COMPARE_ARR = [];
 var CARDS_OBJ = {};
@@ -35,8 +36,6 @@ function CARDS(id, imageURL, pairId, inPlay, showing) {
   this.id = id;
   this.img = imageURL;
   this.pairId = pairId;
-  this.inPlay = inPlay;
-  this.showing = showing;
 
   CARDS_OBJ[id] = this;
   this.render();
@@ -60,6 +59,7 @@ CARDS.prototype.toggleSelect = function(event) {
     if (COMPARE_ARR.length < 1) {
       COMPARE_ARR.push(CARDS_OBJ[element.id].pairId);
     } else if (COMPARE_ARR[0][0] === CARDS_OBJ[element.id].pairId[0] && COMPARE_ARR[0][1] === CARDS_OBJ[element.id].pairId[1]) {
+      peeks++;
       COMPARE_ARR.shift();
     } else {
       COMPARE_ARR.push(CARDS_OBJ[element.id].pairId);
@@ -68,7 +68,6 @@ CARDS.prototype.toggleSelect = function(event) {
       }, 500);
     }
   }
-  // RE-FLIP HERE???
 };
 
 CARDS.prototype.render = function() {
@@ -98,7 +97,7 @@ CARDS.prototype.render = function() {
 function compare() {
   let firstEl = document.getElementsByClassName('is-flipped')[0];
   let secondEl = document.getElementsByClassName('is-flipped')[1];
-
+  guesses++;
   if (COMPARE_ARR[0][0] === COMPARE_ARR[1][0]) {
     COMPARE_ARR.shift();
     COMPARE_ARR.shift();
@@ -118,8 +117,11 @@ function compare() {
     darkDivTwo.setAttribute('class', 'dark-div');
     secondEl.appendChild(darkDivTwo);
 
+    counter++;
+
     // add green border
   } else {
+    missedGuesses++;
     firstEl.classList.toggle('is-flipped');
     secondEl.classList.toggle('is-flipped');
 
@@ -128,13 +130,55 @@ function compare() {
 
     //shake animation
   }
+
+  if (counter === 4) {
+    winGame();
+  }
 }
 
 function Shuffle() {
   // Shuffle Function
 }
 
+function winGame() {
+  //Save stuff to local storage
+  var gamesArr = JSON.parse(localStorage.getItem('Games'));
+  var data = [peeks, missedGuesses, guesses];
+  gamesArr.push(data);
+  console.log(gamesArr);
+  localStorage.setItem('Games',JSON.stringify(gamesArr));
+
+  //create popup
+  let container = document.getElementById('container');
+
+  let div = document.createElement('div');
+  div.setAttribute('id', 'win-game-popup');
+  container.appendChild(div);
+
+  let h2 = document.createElement('h2');
+  h2.textContent ='CONGRATULATIONS!!! You Finished the game! Hit restart game to play a new round, or go back to see your results.';
+  div.appendChild(h2);
+
+  let aOne = document.createElement('a');
+  aOne.setAttribute('href', '../index.html');
+  div.appendChild(aOne);
+
+  let backButton = document.createElement('button');
+  backButton.textContent = 'Back';
+  aOne.appendChild(backButton);
+
+  let restartButton = document.createElement('button');
+  restartButton.textContent = 'Restart';
+  div.appendChild(restartButton);
+
+  restartButton.addEventListener('click', restart);
+}
+
 //Reset game Event listener - Click
+
+function restart() {
+  console.log('restart');
+}
 
 //Create Cards function
 function createCards () {
@@ -149,7 +193,9 @@ function createCards () {
 
 function startGame() {
   //Does previous game exist?
-
+  if(!localStorage.getItem('Games')){
+    localStorage.setItem('Games', JSON.stringify([]));
+  }
   //if not
   //shuffle
   createCards();

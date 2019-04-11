@@ -1,3 +1,46 @@
+
+'use strict';
+
+// ------------------------------------------------------
+// Global Variables
+// -------------------------------------------------------
+
+var myArr = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
+
+// ------------------------------------------------------
+//  Defined Functions
+// -------------------------------------------------------
+
+function fyShuffle(){
+  for ( var i = 0; i < myArr.length; i++){
+    // console.log(myArr.length);
+    var j = myArr.length - i - 1;
+    var random =  Math.floor(Math.random() * (j + 1));
+    // console.log(random);
+    // console.log(j);
+    var cardToShuffle = myArr[j];
+    // console.log(cardToShuffle);
+    var cardReplaced = myArr.slice(random, random + 1);
+    // console.log(cardReplaced);
+    var cardReplacedValue = cardReplaced[0];
+    // console.log(myArr.splice(2,1));
+    // console.log(myArr);
+    // console.log(cardReplacedValue);
+    myArr.splice(random,1, cardToShuffle);
+    myArr.splice( j, 1, cardReplacedValue);
+  }
+  console.log(myArr);
+}
+
+fyShuffle();
+
+
+
+// ------------------------------------------------------
+// Run Script
+// -------------------------------------------------------
+
+
 // ------------------------------------------------------
 // Local Storage
 // -------------------------------------------------------
@@ -76,6 +119,15 @@ function resetState(){
 //     shuffleArray = JSON.parse(rawState);
 //   }
 // }
+
+function getGamesArr{
+  var gamesArr = JSON.parse(localStorage.getItem('Games'));
+ for( var i = 0; i < gamesArr.length; i++){
+  peeks = GamesArr[i][0];
+  missedGuesses = GamesArr[i][1];
+  misses = GamesArr [i][2];
+}
+}
 
 function getPeeks(){
   //get the peeks

@@ -21,7 +21,6 @@ header button {
   justify-content: space-between; 
   margin-right: 400px;
   margin-left: 400px;
-  
 }
 
 /* #cards-section img {
@@ -78,4 +77,14 @@ footer {
   background-color: black;
   opacity: .5;
   z-index: 1000;
+}
+
+
+#win-game-popup {
+  width: 500px;
+  height: 400px;
+  position: fixed;
+  top: 25%;
+  left: 30%;
+  background-color: green;
 }
