@@ -60,10 +60,19 @@ a:hover{
   -webkit-animation: card-rotate 2s both infinite;
 } */
 
+#card-section {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  position: absolute;
+  top: 140px;
+  right: 35px;
+}
+
 #index-card{
   background-color: transparent;
   width: 150px;
-  height: 48px;
+  height: 100px;
   perspective: 1000px;
 }
 
@@ -71,39 +80,31 @@ a:hover{
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform .5s;
   transform-style: preserve-3d;
-  -webkit-animation: card-rotate 2s both infinite;
-  margin-left: -70%; 
-  margin-top: 60%; 
+  animation: card-rotate 2s both infinite;
 }
 
 .index-flip-card-front{
   position: absolute;
-  width: 250%;
-  height: 200%;
+  width: 100%;
+  height: 100%;
   backface-visibility: hidden;
   border-radius: 20px;
 }
 
 .index-flip-card-back{
   background: whitesmoke;
-  transform: rotateY(180deg);
   position: absolute;
+  width: 100%;
+  height: 100%;
   backface-visibility: hidden;
   border-radius: 20px;
-  height: 200%;
-  width: 150%;
-
-
+  transform: rotateY(180deg);
 }
 
 .index-flip-card-front{
   background: url('https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif');
 
-/* background: url('../img/logoRotate.png');
-background-repeat: no-repeat;
-text-align: center; */
 }
 
 @keyframes card-rotate{
@@ -119,6 +120,7 @@ text-align: center; */
     transform: rotateY(360deg);
   }
 }
+
 #matchGameSummary h2{
   margin-top: 3%;
   color:#1D65A6;
