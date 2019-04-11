@@ -146,7 +146,7 @@ function winGame() {
   var gamesArr = JSON.parse(localStorage.getItem('Games'));
   var data = [peeks, missedGuesses, guesses];
   gamesArr.push(data);
-  console.log(gamesArr);
+
   localStorage.setItem('Games',JSON.stringify(gamesArr));
 
   //create popup
