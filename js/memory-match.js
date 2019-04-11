@@ -185,6 +185,16 @@ function winGame() {
 }
 
 //Reset game Event listener - Click
+function reset(){
+  // set global variables
+  missedGuesses = 0;
+  peeks = 0;
+  guesses = 0;
+  counter = 0;
+  COMPARE_ARR = [];
+  CARDS_OBJ = {};
+  restart();
+}
 
 function restart() {
   console.log('restart');
@@ -208,7 +218,10 @@ function startGame() {
     shuffle();
     createCards();
   }
+  var resetButton = document.getElementById('reset');
+  resetButton.addEventListener('click', reset);
 }
+
 
 // ------------------------------------------------------
 // Entry Point Storage
