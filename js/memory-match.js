@@ -5,15 +5,15 @@
 // -------------------------------------------------------
 
 var DATA = [
-  ['a', '../img/code 1_1.png', ['1', '1'], false, false],
-  ['b', '../img/code 1_2.png', ['1', '2'], false, false],
-  ['c', '../img/code 2_1.png', ['2', '1'], false, false],
-  ['d', '../img/code 2_2.png', ['2', '2'], false, false],
-  ['e', '../img/code 3_1.png', ['3', '1'], false, false],
-  ['f', '../img/code 3_2.png', ['3', '2'], false, false],
-  ['g', '../img/code 4_1.png', ['4', '1'], false, false],
-  ['h', '../img/code 4_2.png', ['4', '2'], false, false],
-  ['i', '../img/code 5_1.png', ['5', '1'], false, false],
+  ['a', '../img/code-1-1.png', ['1', '1'], false, false],
+  ['b', '../img/code-1-2.png', ['1', '2'], false, false],
+  ['c', '../img/code-2-1.png', ['2', '1'], false, false],
+  ['d', '../img/code-2-2.png', ['2', '2'], false, false],
+  ['e', '../img/code-3-1.png', ['3', '1'], false, false],
+  ['f', '../img/code-3-2.png', ['3', '2'], false, false],
+  ['g', '../img/code-4-1.png', ['4', '1'], false, false],
+  ['h', '../img/code-4-2.png', ['4', '2'], false, false],
+  ['i', '../img/code-5-1.png', ['5', '1'], false, false],
 ];
 
 // ------------------------------------------------------
@@ -86,7 +86,7 @@ CARDS.prototype.render = function() {
   divFront.setAttribute('class', 'flip-card-front');
   divInner.appendChild(divFront);
   var img = document.createElement('img');
-  console.log(this.img);
+
   img.setAttribute('src', this.img);
   img.setAttribute('class', 'flip-card-back');
   divInner.appendChild(img);
