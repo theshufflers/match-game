@@ -136,8 +136,9 @@ function compare() {
   }
 }
 
-function Shuffle() {
-  // Shuffle Function
+function shuffle() {
+  // Shuffle DATA
+  console.log('shuffle');
 }
 
 function winGame() {
@@ -192,12 +193,11 @@ function createCards () {
 // -------------------------------------------------------
 
 function startGame() {
-  //Does previous game exist?
   if(!localStorage.getItem('Games')){
     localStorage.setItem('Games', JSON.stringify([]));
   }
-  //if not
-  //shuffle
+
+  //shuffle();
   createCards();
 }
 
