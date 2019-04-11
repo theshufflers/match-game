@@ -35,15 +35,15 @@ nav a{
 }
 
 .profile-card {
-  width: 70%;
-  height: 250px;
+  width: 60%;
+  height: 500px;
   background-color: #72A2C0;
   display: flex;
   flex-direction: row;
   margin-top: 25px;
   margin-left: 25%;
-  border-radius: 60%;
-  border-radius: 60%;
+  border-radius: 40%;
+  
 }
 
 .profile-card article{
@@ -54,34 +54,38 @@ nav a{
 .profile-card h2{
   /* color: #007434; */
   color: #1D65A6;
-  font-size: 62px;
+  font-size: 56px;
   font-weight: bold;
 }
 .profile-card p{
   color: #007434;
   margin-top: 2%;
-  font-size: 36px;
+  font-size: 26px;
 }
 
 .profile-img {
-  width: 15%;
+  width: 25%;
   height: 70%;
   margin: 3%;
   border-radius: 60px;
   margin-left: 13%;
-  margin-top: 4%;
+  margin-top: 8%;
 
+}
+
+.social-icons{
+  
 }
 
 i.fab.fa-github{
   color: black;
-  font-size: 40px;
+  font-size: 60px;
   margin-right: 30%;
 }
 
 i.fab.fa-linkedin{
   color:black;
-  font-size: 40px;
+  font-size: 60px;
 }
 
 
@@ -90,11 +94,11 @@ i.fab.fa-linkedin{
 }
 
 .profile-card article p {
-  margin-bottom: 35px;
+  margin-bottom: 10px;
 }
 
 .profile-card article figure {
-  margin-left: 25%;
+  margin-left: 5%;
 }
 
 .profile-card article img {
@@ -113,7 +117,7 @@ i.fab.fa-linkedin{
 
 
 footer {
-  height: 100px;
+  height: 140px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -125,7 +129,7 @@ footer {
 footer img{
   margin-left: 50%;
   align-items: center;
-  width: 50%;
+  width: 80%;
   border-radius: 40%;
 }
 
