@@ -1,11 +1,18 @@
+body {
+  background: #1D65A6;
+}
+
+
 #container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+
 }
 
 header {
   display: flex;
   flex-direction: row;
   height: 100px;
+  
 }
 
 header button {
@@ -14,8 +21,8 @@ header button {
 }
 
 #cards-section {
-  margin-top: 50px;
-  border: 1px solid black;
+  margin-top: 30px;
+  /* border: 1px solid black; */
   display: flex; 
   flex-wrap: wrap;
   justify-content: space-between; 
@@ -33,7 +40,7 @@ footer {
 
 .flip-card {
   background-color: transparent;
-  width: 200px;
+  width: 450px;
   height: 250px;
   perspective: 1000px;
   margin-top: 25px;
@@ -60,7 +67,14 @@ footer {
 }
 
 .flip-card-front {
-  background: blue;
+  background-image:  url('https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif');
+  /* url('https://media.giphy.com/media/2SYpZ92iLQsF6QZl5u/giphy.gif' */
+  /* url('https://media.giphy.com/media/3oFzlWifRcnogZOs3m/giphy.gif'); */
+  /* url('https://media.giphy.com/media/9g2MtMzYF30WY/giphy.gif'); */
+  /* url('https://media.giphy.com/media/BkjdN6MQCDPaw/giphy.gif') */
+
+  /* bacground-repeat: repeat; */
+  /* background: blue; */
 }
 
 .flip-card-inner.is-flipped {
