@@ -202,7 +202,6 @@ function createCards () {
 // -------------------------------------------------------
 
 function startGame() {
-  //Does previous game exist?
   if(!localStorage.getItem('Games')){
     localStorage.setItem('Games', JSON.stringify([]));
   }else {
