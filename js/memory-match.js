@@ -203,8 +203,11 @@ function reset(){
   }
 
   let container = document.getElementById('container');
-  let popup = document.getElementById('win-game-popup');
-  container.removeChild(popup);
+
+  if (document.getElementById('win-game-popup')) {
+    let popup = document.getElementById('win-game-popup');
+    container.removeChild(popup);
+  }
 
   startGame();
 }
@@ -223,10 +226,11 @@ function createCards () {
 function startGame() {
   if(!localStorage.getItem('Games')){
     localStorage.setItem('Games', JSON.stringify([]));
-  }else {
-    shuffle();
-    createCards();
   }
+
+  shuffle();
+  createCards();
+
   var resetButton = document.getElementById('reset');
   resetButton.addEventListener('click', reset);
 
