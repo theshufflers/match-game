@@ -2,10 +2,6 @@ body{
   background-color: #1D65A6;
 }
 
-#container {
-  display: grid;
-}
-
 #home{
   font-style: italic;
 }
@@ -178,10 +174,12 @@ i.fab.fa-github{
 #graph {
   height: auto;
   width: 600px;
+  display: inline-block;
 }
 
 Canvas {
-  color: #F2A104;
+  background-color: #72A2C0;
+  border-radius: 15px;
 }
 
 /* Responsive Screen Size CSS Rules */
@@ -209,10 +207,12 @@ Canvas {
   }
 }
 
-.gameResult {
-  text-decoration: none;
-  width: 240px;
-  height: 180px;
+#results {
+  display: inline-block;
+  width: 200px;
+  height: 300px;
+  margin-right: 10%;
+  background-color: #72A2C0;
   margin-left: 40px;
   color: #F2A104;
   font-size: 20px;
@@ -220,3 +220,5 @@ Canvas {
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
 }
+
+

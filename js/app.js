@@ -46,13 +46,14 @@ function renderChart(gamesArr) {
       datasets : [
         {
           data : [],
-          backgroundColor : 'rgb(64, 211, 191)',
-          borderColor : '#F2A104',
-          pointBackgroundColor: 'rgb(46, 135, 100)',
+          backgroundColor : ['rgba(0,128,128, 0.6)', 'rgba(255,0,0, .0.6)', 'rgba(255,255,0, 0.6)', 'rgba(255,0,255, 0.6)', 'rgba(0,116,52, 0.6)', 'rgba(128,0,128, 0.6)'],
         }
       ]
     },
     options: {
+      legend: {
+        display: false,
+      },
       scales: {
         xAxes: [{
           maxBarThickness: 30,
@@ -64,9 +65,6 @@ function renderChart(gamesArr) {
           ticks: {stepSize: 50},
           maintainAspectRatio: false,
         }]
-      },
-      legend: {
-        display: false
       },
       title: {
         display: true,
@@ -95,7 +93,8 @@ function renderChart(gamesArr) {
 
     barData.data.datasets[0].data.push(points);
   }
-
+  Chart.defaults.global.defaultFontColor = '#F2A104';
+  Chart.defaults.global.defaultFontSize = '16';
   new Chart(ctx, barData);
 }
 
