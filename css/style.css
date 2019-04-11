@@ -66,7 +66,7 @@ a:hover{
   transition: transform .5s;
   transform-style: preserve-3d;
   -webkit-animation: card-rotate 2s both infinite;
-  margin-top: 60%; 
+  margin-top: -20%;
 }
 
 .index-flip-card-front{
@@ -194,6 +194,25 @@ i.fab.fa-github{
   font-size: 90px;
 }
 
+#results {
+  display: inline-block;
+  width: 200px;
+  height: 300px;
+  margin-right: 10%;
+  background-color: #72A2C0;
+  margin-left: 40px;
+  color: #007434;
+  font-size: 20px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+#results h2{
+  font-size: 26px;
+  font-weight: bold;
+}
+
 #graph {
   height: auto;
   width: 600px;
@@ -228,20 +247,6 @@ Canvas {
     color: #1D65A6;
     font-size: 36px;
   }
-}
-
-#results {
-  display: inline-block;
-  width: 200px;
-  height: 300px;
-  margin-right: 10%;
-  background-color: #72A2C0;
-  margin-left: 40px;
-  color: #F2A104;
-  font-size: 20px;
-  overflow-y: scroll;
-  scrollbar-color: rebeccapurple green;
-  scrollbar-width: thin;
 }
 
 
