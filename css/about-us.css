@@ -5,6 +5,10 @@ body{
   display: grid;
 }
 
+#about-us{
+  font-style: italic;
+}
+
 header {
   height: 100px;
   display: flex;

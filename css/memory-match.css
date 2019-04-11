@@ -132,8 +132,9 @@ footer {
   background-color: #1D65A6;
   color: #F2A104;
   margin-left: 15%;
-  margin-top: 10%;
+  margin-top: 5%;
   font-size: 32px;
+  height: 20%;
 }
 
 #reset{
@@ -143,4 +144,5 @@ footer {
   margin-left: 40%;
   margin-top: 5%;
   font-size: 62px;
+  height: 30%;
 }

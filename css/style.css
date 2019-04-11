@@ -6,6 +6,10 @@ body{
   display: grid;
 }
 
+#home{
+  font-style: italic;
+}
+
 header {
   height: 100px;
   display: flex;
@@ -33,6 +37,9 @@ nav a{
 a:hover{
   color: #007434;
 }
+
+
+
 
 #matchGameSummary {
   display: flex;
