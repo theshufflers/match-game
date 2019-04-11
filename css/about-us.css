@@ -56,7 +56,6 @@ nav a{
 }
 
 .profile-card h2{
-  /* color: #007434; */
   color: #1D65A6;
   font-size: 56px;
   font-weight: bold;
@@ -64,7 +63,7 @@ nav a{
 .profile-card p{
   color: #007434;
   margin-top: 2%;
-  font-size: 26px;
+  font-size: 20px;
 }
 
 .profile-img {

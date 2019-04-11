@@ -77,7 +77,7 @@ function renderChart(gamesArr) {
 
   let canvas = document.createElement('Canvas');
   canvas.setAttribute('width', '1000px');
-  canvas.setAttribute('height', '500');
+  canvas.setAttribute('height', '800');
   let ctx = canvas.getContext('2d');
 
   container.appendChild(canvas);
@@ -93,8 +93,8 @@ function renderChart(gamesArr) {
 
     barData.data.datasets[0].data.push(points);
   }
-  Chart.defaults.global.defaultFontColor = '#F2A104';
-  Chart.defaults.global.defaultFontSize = '16';
+  Chart.defaults.global.defaultFontColor = '#007434';
+  Chart.defaults.global.defaultFontSize = '26';
   new Chart(ctx, barData);
 }
 
