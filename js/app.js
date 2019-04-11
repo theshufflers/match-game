@@ -4,8 +4,21 @@
 // ------------------------------------------------------
 // Global Variables
 // -------------------------------------------------------
+var peeks = 0;
+var guesses = 0;
+var missedGuesses = 0;
 
-var myArr = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
+var myArr  = [
+  ['a', 'https://via.placeholder.com/200x250', ['1', '1'], false, false],
+  ['b', 'https://via.placeholder.com/200x250', ['1', '2'], false, false],
+  ['c', 'https://via.placeholder.com/200x250', ['2', '1'], false, false],
+  ['d', 'https://via.placeholder.com/200x250', ['2', '2'], false, false],
+  ['e', 'https://via.placeholder.com/200x250', ['3', '1'], false, false],
+  ['f', 'https://via.placeholder.com/200x250', ['3', '2'], false, false],
+  ['g', 'https://via.placeholder.com/200x250', ['4', '1'], false, false],
+  ['h', 'https://via.placeholder.com/200x250', ['4', '2'], false, false],
+  ['i', 'https://via.placeholder.com/200x250', ['5', '1'], false, false],
+];
 
 // ------------------------------------------------------
 //  Defined Functions
@@ -13,19 +26,11 @@ var myArr = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
 
 function fyShuffle(){
   for ( var i = 0; i < myArr.length; i++){
-    // console.log(myArr.length);
     var j = myArr.length - i - 1;
     var random =  Math.floor(Math.random() * (j + 1));
-    // console.log(random);
-    // console.log(j);
     var cardToShuffle = myArr[j];
-    // console.log(cardToShuffle);
     var cardReplaced = myArr.slice(random, random + 1);
-    // console.log(cardReplaced);
     var cardReplacedValue = cardReplaced[0];
-    // console.log(myArr.splice(2,1));
-    // console.log(myArr);
-    // console.log(cardReplacedValue);
     myArr.splice(random,1, cardToShuffle);
     myArr.splice( j, 1, cardReplacedValue);
   }
@@ -144,7 +149,6 @@ function getGamesArr() {
     let guesses = document.createElement('h3');
     guesses.textContent = `guesses: ${gamesArr[i][2]}`;
     div.appendChild(guesses);
-
   }
 }
 
