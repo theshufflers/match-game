@@ -4,8 +4,21 @@
 // ------------------------------------------------------
 // Global Variables
 // -------------------------------------------------------
+var peeks = 0;
+var guesses = 0;
+var missedGuesses = 0;
 
-var myArr = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
+var myArr  = [
+  ['a', 'https://via.placeholder.com/200x250', ['1', '1'], false, false],
+  ['b', 'https://via.placeholder.com/200x250', ['1', '2'], false, false],
+  ['c', 'https://via.placeholder.com/200x250', ['2', '1'], false, false],
+  ['d', 'https://via.placeholder.com/200x250', ['2', '2'], false, false],
+  ['e', 'https://via.placeholder.com/200x250', ['3', '1'], false, false],
+  ['f', 'https://via.placeholder.com/200x250', ['3', '2'], false, false],
+  ['g', 'https://via.placeholder.com/200x250', ['4', '1'], false, false],
+  ['h', 'https://via.placeholder.com/200x250', ['4', '2'], false, false],
+  ['i', 'https://via.placeholder.com/200x250', ['5', '1'], false, false],
+];
 
 // ------------------------------------------------------
 //  Defined Functions
@@ -13,19 +26,11 @@ var myArr = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
 
 function fyShuffle(){
   for ( var i = 0; i < myArr.length; i++){
-    // console.log(myArr.length);
     var j = myArr.length - i - 1;
     var random =  Math.floor(Math.random() * (j + 1));
-    // console.log(random);
-    // console.log(j);
     var cardToShuffle = myArr[j];
-    // console.log(cardToShuffle);
     var cardReplaced = myArr.slice(random, random + 1);
-    // console.log(cardReplaced);
     var cardReplacedValue = cardReplaced[0];
-    // console.log(myArr.splice(2,1));
-    // console.log(myArr);
-    // console.log(cardReplacedValue);
     myArr.splice(random,1, cardToShuffle);
     myArr.splice( j, 1, cardReplacedValue);
   }
@@ -54,33 +59,33 @@ var shuffleArray = [];//new design for Fisher-Yates algorythm results
 //___________________________________________________________
 
 //Place all functions within the getStateFromLocalStoreage and setStateToLocalStorage functions for any change of state.
-(function getStateFromLocalStoreage(){
-  if(localStorage[STATE_KEY]){
-    var rawState = localStorage.getItem(STATE_KEY);
-    CARDS_OBJ = JSON.parse(rawState);
-    getPeeks();
-    getMisses();
-    getGuesses();
-    // getCompareArray();
-    // getShuffleArray();
-    // getCards();
-    // // getOptions();
-    // renderDOM();
-  }else{
-    resetState();
-  }
-})(); //groups and calls function.
+// (function getStateFromLocalStoreage(){
+//   if(localStorage[STATE_KEY]){
+//     var rawState = localStorage.getItem(STATE_KEY);
+//     CARDS_OBJ = JSON.parse(rawState);
+//     getPeeks();
+//     getMisses();
+//     getGuesses();
+//     // getCompareArray();
+//     // getShuffleArray();
+//     // getCards();
+//     // // getOptions();
+//     // renderDOM();
+//   }else{
+//     resetState();
+//   }
+// })(); //groups and calls function.
 
-function setStateToLocalStorage(){
-  setPeeks();
-  setMisses();
-  setGuesses();
-  // setCompareArray();
-  // setShuffleArray();
-  // setCards();
-  // // setOptions();
-  // setDOM();
-}
+// function setStateToLocalStorage(){
+//   setPeeks();
+//   setMisses();
+//   setGuesses();
+//   // setCompareArray();
+//   // setShuffleArray();
+//   // setCards();
+//   // // setOptions();
+//   // setDOM();
+// }
 
 function resetState(){
   //include calls to all functions needed to reset the state to where the user refreshed or closed browser window.
@@ -120,14 +125,34 @@ function resetState(){
 //   }
 // }
 
-// function getGamesArr{
-//   var gamesArr = JSON.parse(localStorage.getItem('Games'));
-//  for( var i = 0; i < gamesArr.length; i++){
-//   peeks = GamesArr[i][0];
-//   missedGuesses = GamesArr[i][1];
-//   misses = GamesArr [i][2];
-// }
-// }
+function getGamesArr() {
+  var gamesArr = JSON.parse(localStorage.getItem('Games'));
+  
+  let results = document.getElementById('results');
+
+  for( var i = 0; i < gamesArr.length; i++){
+    let div = document.createElement('div');
+    results.appendChild(div);
+
+    let h2 = document.createElement('h2');
+    h2.textContent = `Game: ${i + 1}`;
+    div.appendChild(h2);
+
+    let peeks = document.createElement('h3');
+    peeks.textContent = `Peeks: ${gamesArr[i][0]}`;
+    div.appendChild(peeks);
+
+    let missedGuesses = document.createElement('h3');
+    missedGuesses.textContent = `Missed Guesses: ${gamesArr[i][1]}`;
+    div.appendChild(missedGuesses);
+
+    let guesses = document.createElement('h3');
+    guesses.textContent = `guesses: ${gamesArr[i][2]}`;
+    div.appendChild(guesses);
+  }
+}
+
+getGamesArr();
 
 function getPeeks(){
   //get the peeks

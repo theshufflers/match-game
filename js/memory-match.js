@@ -85,8 +85,8 @@ CARDS.prototype.render = function() {
   var divFront = document.createElement('div');
   divFront.setAttribute('class', 'flip-card-front');
   divInner.appendChild(divFront);
-
   var img = document.createElement('img');
+
   img.setAttribute('src', this.img);
   img.setAttribute('class', 'flip-card-back');
   divInner.appendChild(img);
@@ -137,16 +137,25 @@ function compare() {
 }
 
 function shuffle() {
-  // Shuffle DATA
-  console.log('shuffle DATA');
+  for ( var i = 0; i < DATA.length; i++){
+    var j = DATA.length - i - 1;
+    var random =  Math.floor(Math.random() * (j + 1));
+    var cardToShuffle = DATA[j];
+    var cardReplaced = DATA.slice(random, random + 1);
+    var cardReplacedValue = cardReplaced[0];
+    DATA.splice(random,1, cardToShuffle);
+    DATA.splice( j, 1, cardReplacedValue);
+  }
+  console.log(DATA);
 }
+
 
 function winGame() {
   //Save stuff to local storage
   var gamesArr = JSON.parse(localStorage.getItem('Games'));
   var data = [peeks, missedGuesses, guesses];
   gamesArr.push(data);
-  console.log(gamesArr);
+
   localStorage.setItem('Games',JSON.stringify(gamesArr));
 
   //create popup
@@ -195,10 +204,10 @@ function createCards () {
 function startGame() {
   if(!localStorage.getItem('Games')){
     localStorage.setItem('Games', JSON.stringify([]));
+  }else {
+    shuffle();
+    createCards();
   }
-
-  //shuffle();
-  createCards();
 }
 
 // ------------------------------------------------------
