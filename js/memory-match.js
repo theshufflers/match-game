@@ -193,11 +193,7 @@ function reset(){
   counter = 0;
   COMPARE_ARR = [];
   CARDS_OBJ = {};
-  restart();
-}
-
-function restart() {
-  console.log('restart');
+  startGame();
 }
 
 //Create Cards function
