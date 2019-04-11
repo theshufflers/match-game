@@ -34,9 +34,6 @@ a:hover{
   color: #007434;
 }
 
-
-
-
 #matchGameSummary {
   display: flex;
   flex-direction: row;
@@ -44,10 +41,9 @@ a:hover{
   margin: 1% 10%;
   background-color: #72A2C0;
   border-radius: 40%;
-  height: 110%;
+  height: 300px;
   width: 90%;
   margin-left: 3%;
-  
 }
 
 #matchGameSummary img{
@@ -56,9 +52,6 @@ a:hover{
   width: 250%;
 }
 
-/* #card{
-  -webkit-animation: card-rotate 2s both infinite;
-} */
 
 #card-section {
   width: 300px;
@@ -99,12 +92,12 @@ a:hover{
   height: 100%;
   backface-visibility: hidden;
   border-radius: 20px;
-  transform: rotateY(180deg);
+  height: 200%;
+  width: 150%;
 }
 
 .index-flip-card-front{
   background: url('https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif');
-
 }
 
 @keyframes card-rotate{
@@ -130,8 +123,7 @@ a:hover{
 
 #matchGameSummary article {
   margin-left: 10%;
-  margin-top: 3%;
-  
+  margin-top: 1%;
 }
 
 #matchGameSummary article h3 {
@@ -166,10 +158,6 @@ a:hover{
   margin-bottom: 5%;
 } 
 
-/* #content{
-  display: block;
-} */
-
 #gameStart {
   display: flex;
   justify-content: center;
@@ -195,7 +183,7 @@ footer {
   justify-content: space-evenly;
   align-items: center;  
   background-color: whitesmoke;
-  
+  margin-top: 20%;
 }
 
 footer a{
