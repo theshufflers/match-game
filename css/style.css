@@ -163,6 +163,15 @@ i.fab.fa-github{
   font-size: 90px;
 }
 
+#graph {
+  height: auto;
+  width: 600px;
+}
+
+Canvas {
+  color: #F2A104;
+}
+
 /* Responsive Screen Size CSS Rules */
 
 @media screen and (max-width: 700px) {
@@ -185,4 +194,5 @@ i.fab.fa-github{
     margin: 10% 10%;
     color: #1D65A6;
     font-size: 36px;
+  }
 }

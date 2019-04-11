@@ -47,14 +47,14 @@ CARDS.prototype.toggleSelect = function(event) {
   let element;
 
   if (COMPARE_ARR.length < 2) {
-    if (target.className === 'flip-card-inner') {
+    if (target.className === 'flip-card-inner' || target.className === 'flip-card-inner is-flipped') {
       element = target;
-    } else {
+    } else if (target.className === 'flip-card-front' || target.className === 'flip-card-back') {
       element = target.parentElement;
     }
   }
 
-  if (COMPARE_ARR.length < 2 && element.className === 'flip-card-inner') {
+  if (COMPARE_ARR.length < 2 && element !== undefined) {
     element.classList.toggle('is-flipped');
     if (COMPARE_ARR.length < 1) {
       COMPARE_ARR.push(CARDS_OBJ[element.id].pairId);
@@ -181,7 +181,7 @@ function winGame() {
   restartButton.textContent = 'Restart';
   div.appendChild(restartButton);
 
-  restartButton.addEventListener('click', restart);
+  restartButton.addEventListener('click', reset);
 }
 
 //Reset game Event listener - Click
@@ -193,6 +193,19 @@ function reset(){
   counter = 0;
   COMPARE_ARR = [];
   CARDS_OBJ = {};
+
+  let parent = document.getElementById('cards-section');
+  let flipCardArr = document.getElementsByClassName('flip-card');
+
+  while (flipCardArr.length > 0) {
+    let child = flipCardArr[0];
+    parent.removeChild(child);
+  }
+
+  let container = document.getElementById('container');
+  let popup = document.getElementById('win-game-popup');
+  container.removeChild(popup);
+
   startGame();
 }
 
@@ -216,6 +229,8 @@ function startGame() {
   }
   var resetButton = document.getElementById('reset');
   resetButton.addEventListener('click', reset);
+
+  console.log(CARDS_OBJ);
 }
 
 
@@ -229,4 +244,3 @@ startGame();
 // -------------------------------------------------------
 
 // -------------------------------------------------------
-
