@@ -5,15 +5,15 @@
 // -------------------------------------------------------
 
 var DATA = [
-  ['a', 'https://via.placeholder.com/200x250', ['1', '1'], false, false],
-  ['b', 'https://via.placeholder.com/200x250', ['1', '2'], false, false],
-  ['c', 'https://via.placeholder.com/200x250', ['2', '1'], false, false],
-  ['d', 'https://via.placeholder.com/200x250', ['2', '2'], false, false],
-  ['e', 'https://via.placeholder.com/200x250', ['3', '1'], false, false],
-  ['f', 'https://via.placeholder.com/200x250', ['3', '2'], false, false],
-  ['g', 'https://via.placeholder.com/200x250', ['4', '1'], false, false],
-  ['h', 'https://via.placeholder.com/200x250', ['4', '2'], false, false],
-  ['i', 'https://via.placeholder.com/200x250', ['5', '1'], false, false],
+  ['a', '../img/code 1_1.png', ['1', '1'], false, false],
+  ['b', '../img/code 1_2.png', ['1', '2'], false, false],
+  ['c', '../img/code 2_1.png', ['2', '1'], false, false],
+  ['d', '../img/code 2_2.png', ['2', '2'], false, false],
+  ['e', '../img/code 3_1.png', ['3', '1'], false, false],
+  ['f', '../img/code 3_2.png', ['3', '2'], false, false],
+  ['g', '../img/code 4_1.png', ['4', '1'], false, false],
+  ['h', '../img/code 4_2.png', ['4', '2'], false, false],
+  ['i', '../img/code 5_1.png', ['5', '1'], false, false],
 ];
 
 // ------------------------------------------------------
@@ -85,9 +85,9 @@ CARDS.prototype.render = function() {
   var divFront = document.createElement('div');
   divFront.setAttribute('class', 'flip-card-front');
   divInner.appendChild(divFront);
-
   var img = document.createElement('img');
-  img.setAttribute('src', 'https://via.placeholder.com/200x250');
+  console.log(this.img);
+  img.setAttribute('src', this.img);
   img.setAttribute('class', 'flip-card-back');
   divInner.appendChild(img);
 
@@ -136,9 +136,19 @@ function compare() {
   }
 }
 
-function Shuffle() {
-  // Shuffle Function
+function shuffle() {
+  for ( var i = 0; i < DATA.length; i++){
+    var j = DATA.length - i - 1;
+    var random =  Math.floor(Math.random() * (j + 1));
+    var cardToShuffle = DATA[j];
+    var cardReplaced = DATA.slice(random, random + 1);
+    var cardReplacedValue = cardReplaced[0];
+    DATA.splice(random,1, cardToShuffle);
+    DATA.splice( j, 1, cardReplacedValue);
+  }
+  console.log(DATA);
 }
+
 
 function winGame() {
   //Save stuff to local storage
@@ -195,10 +205,10 @@ function startGame() {
   //Does previous game exist?
   if(!localStorage.getItem('Games')){
     localStorage.setItem('Games', JSON.stringify([]));
+  }else {
+    shuffle();
+    createCards();
   }
-  //if not
-  //shuffle
-  createCards();
 }
 
 // ------------------------------------------------------
