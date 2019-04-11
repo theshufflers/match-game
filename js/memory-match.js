@@ -52,10 +52,10 @@ CARDS.prototype.toggleSelect = function(event) {
     } else {
       element = target.parentElement;
     }
-    element.classList.toggle('is-flipped');
   }
 
-  if (COMPARE_ARR.length < 2) {
+  if (COMPARE_ARR.length < 2 && element.className === 'flip-card-inner') {
+    element.classList.toggle('is-flipped');
     if (COMPARE_ARR.length < 1) {
       COMPARE_ARR.push(CARDS_OBJ[element.id].pairId);
     } else if (COMPARE_ARR[0][0] === CARDS_OBJ[element.id].pairId[0] && COMPARE_ARR[0][1] === CARDS_OBJ[element.id].pairId[1]) {
