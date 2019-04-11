@@ -21,13 +21,13 @@ header button {
 }
 
 #cards-section {
-  margin-top: 30px;
-  /* border: 1px solid black; */
+  margin-top: 10px;
+  border: 1px solid black;
   display: flex; 
   flex-wrap: wrap;
   justify-content: space-between; 
-  margin-right: 400px;
-  margin-left: 400px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 /* #cards-section img {
@@ -40,10 +40,10 @@ footer {
 
 .flip-card {
   background-color: transparent;
-  width: 450px;
-  height: 250px;
+  width: 300px;
+  height: 200px;
   perspective: 1000px;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .flip-card-inner {
