@@ -86,7 +86,7 @@ CARDS.prototype.render = function() {
   divFront.setAttribute('class', 'flip-card-front');
   divInner.appendChild(divFront);
   var img = document.createElement('img');
-  console.log(this.img);
+
   img.setAttribute('src', this.img);
   img.setAttribute('class', 'flip-card-back');
   divInner.appendChild(img);
