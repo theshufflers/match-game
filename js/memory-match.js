@@ -5,15 +5,15 @@
 // -------------------------------------------------------
 
 var DATA = [
-  ['a', 'https://via.placeholder.com/200x250', '1', false, false],
-  ['b', 'https://via.placeholder.com/200x250', '1', false, false],
-  ['c', 'https://via.placeholder.com/200x250', '2', false, false],
-  ['d', 'https://via.placeholder.com/200x250', '2', false, false],
-  ['e', 'https://via.placeholder.com/200x250', '3', false, false],
-  ['f', 'https://via.placeholder.com/200x250', '3', false, false],
-  ['g', 'https://via.placeholder.com/200x250', '4', false, false],
-  ['h', 'https://via.placeholder.com/200x250', '4', false, false],
-  ['i', 'https://via.placeholder.com/200x250', '5', false, false],
+  ['a', '../img/code-1-1.png', ['1', '1']],
+  ['b', '../img/code-1-2.png', ['1', '2']],
+  ['c', '../img/code-2-1.png', ['2', '1']],
+  ['d', '../img/code-2-2.png', ['2', '2']],
+  ['e', '../img/code-3-1.png', ['3', '1']],
+  ['f', '../img/code-3-2.png', ['3', '2']],
+  ['g', '../img/code-4-1.png', ['4', '1']],
+  ['h', '../img/code-4-2.png', ['4', '2']],
+  ['i', '../img/code-5-1.png', ['5', '1']],
 ];
 
 // ------------------------------------------------------
@@ -21,61 +21,198 @@ var DATA = [
 // -------------------------------------------------------
 
 var missedGuesses = 0;
-var matches = 0;
 var peeks = 0;
+var guesses = 0;
+var counter = 0;
 
 var COMPARE_ARR = [];
-var CARDS_ARR = [];
+var CARDS_OBJ = {};
 
 // ------------------------------------------------------
 //  Defined Functions
 // -------------------------------------------------------
 
-
-function CARDS(id, imageURL, pairID, inPlay, showing) {
+function CARDS(id, imageURL, pairId) {
   this.id = id;
   this.img = imageURL;
-  this.pairID = pairID;
-  this.inPlay = inPlay;
-  this.showing = showing;
-  
-  CARDS_ARR.push(id);
+  this.pairId = pairId;
+
+  CARDS_OBJ[id] = this;
+  this.render();
 }
 
-CARDS.prototype.toggleSelect = function() {
-  // toggle function
+CARDS.prototype.toggleSelect = function(event) {
+  event.preventDefault();
+  var target = event.target;
+  let element;
+
+  if (COMPARE_ARR.length < 2) {
+    if (target.className === 'flip-card-inner' || target.className === 'flip-card-inner is-flipped') {
+      element = target;
+    } else if (target.className === 'flip-card-front' || target.className === 'flip-card-back') {
+      element = target.parentElement;
+    }
+  }
+
+  if (COMPARE_ARR.length < 2 && element !== undefined) {
+    element.classList.toggle('is-flipped');
+    if (COMPARE_ARR.length < 1) {
+      COMPARE_ARR.push(CARDS_OBJ[element.id].pairId);
+    } else if (COMPARE_ARR[0][0] === CARDS_OBJ[element.id].pairId[0] && COMPARE_ARR[0][1] === CARDS_OBJ[element.id].pairId[1]) {
+      peeks++;
+      COMPARE_ARR.shift();
+    } else {
+      COMPARE_ARR.push(CARDS_OBJ[element.id].pairId);
+      setTimeout(function() {
+        compare();
+      }, 500);
+    }
+  }
 };
 
 CARDS.prototype.render = function() {
-  let cardsSection = document.getElementById('cards-section');
+  var cardsSection = document.getElementById('cards-section');
 
-  let div = document.createElement('div');
-  div.setAttribute('id', this.id);
+  var div = document.createElement('div');
+  div.setAttribute('class', 'flip-card');
   cardsSection.appendChild(div);
 
-  let img = document.createElement('img');
-  img.setAttribute('src', 'https://via.placeholder.com/200x250');
-  div.appendChild(img);
+  var divInner = document.createElement('div');
+  divInner.setAttribute('id', this.id);
+  divInner.setAttribute('class', 'flip-card-inner');
+  div.appendChild(divInner);
+
+  var divFront = document.createElement('div');
+  divFront.setAttribute('class', 'flip-card-front');
+  divInner.appendChild(divFront);
+  var img = document.createElement('img');
+
+  img.setAttribute('src', this.img);
+  img.setAttribute('class', 'flip-card-back');
+  divInner.appendChild(img);
+
+  divInner.addEventListener('click', this.toggleSelect);
 };
 
-function Compare() {
-  // Compare function
+function compare() {
+  let firstEl = document.getElementsByClassName('is-flipped')[0];
+  let secondEl = document.getElementsByClassName('is-flipped')[1];
+  guesses++;
+  if (COMPARE_ARR[0][0] === COMPARE_ARR[1][0]) {
+    COMPARE_ARR.shift();
+    COMPARE_ARR.shift();
+
+    // add dark screen
+    firstEl.removeEventListener('click', CARDS_OBJ[firstEl.id].toggleSelect);
+    secondEl.removeEventListener('click', CARDS_OBJ[firstEl.id].toggleSelect);
+
+    let darkDivOne = document.createElement('div');
+    darkDivOne.setAttribute('class', 'dark-div');
+    firstEl.appendChild(darkDivOne);
+
+    firstEl.classList.replace('is-flipped', 'flipped-perm');
+    secondEl.classList.replace('is-flipped', 'flipped-perm');
+
+    let darkDivTwo = document.createElement('div');
+    darkDivTwo.setAttribute('class', 'dark-div');
+    secondEl.appendChild(darkDivTwo);
+
+    counter++;
+
+    // add green border
+  } else {
+    missedGuesses++;
+    firstEl.classList.toggle('is-flipped');
+    secondEl.classList.toggle('is-flipped');
+
+    COMPARE_ARR.shift();
+    COMPARE_ARR.shift();
+
+    //shake animation
+  }
+
+  if (counter === 4) {
+    winGame();
+  }
 }
 
-function CorrectAnswer() {
-  // Correct Answer function
+function shuffle() {
+  for ( var i = 0; i < DATA.length; i++){
+    var j = DATA.length - i - 1;
+    var random =  Math.floor(Math.random() * (j + 1));
+    var cardToShuffle = DATA[j];
+    var cardReplaced = DATA.slice(random, random + 1);
+    var cardReplacedValue = cardReplaced[0];
+    DATA.splice(random,1, cardToShuffle);
+    DATA.splice( j, 1, cardReplacedValue);
+  }
+  console.log(DATA);
 }
 
-function WrongAnswer() {
-  // Wrong Answer function
+
+function winGame() {
+  //Save stuff to local storage
+  var gamesArr = JSON.parse(localStorage.getItem('Games'));
+  var data = [peeks, missedGuesses, guesses];
+  gamesArr.push(data);
+
+  localStorage.setItem('Games',JSON.stringify(gamesArr));
+
+  //create popup
+  let container = document.getElementById('container');
+
+  let div = document.createElement('div');
+  div.setAttribute('id', 'win-game-popup');
+  container.appendChild(div);
+
+  let h2 = document.createElement('h2');
+  h2.textContent ='CONGRATULATIONS!!! You Finished the game! Hit restart game to play a new round, or go back to see your results.';
+  div.appendChild(h2);
+
+  let aOne = document.createElement('a');
+  aOne.setAttribute('href', '../index.html');
+  div.appendChild(aOne);
+
+  let backButton = document.createElement('button');
+  backButton.setAttribute('class', 'gameButtons');
+  backButton.textContent = 'See Results';
+  aOne.appendChild(backButton);
+
+  let restartButton = document.createElement('button');
+  restartButton.setAttribute('class', 'gameButtons');
+  restartButton.textContent = 'Restart';
+  div.appendChild(restartButton);
+
+  restartButton.addEventListener('click', reset);
 }
 
-function Shuffle() {
-  // Shuffle Function
-}
-
-//Card click Event Listenter - Click
 //Reset game Event listener - Click
+function reset(){
+  // set global variables
+  missedGuesses = 0;
+  peeks = 0;
+  guesses = 0;
+  counter = 0;
+  COMPARE_ARR = [];
+  CARDS_OBJ = {};
+
+  let parent = document.getElementById('cards-section');
+  let flipCardArr = document.getElementsByClassName('flip-card');
+
+  while (flipCardArr.length > 0) {
+    let child = flipCardArr[0];
+    parent.removeChild(child);
+  }
+
+  let container = document.getElementById('container');
+
+  if (document.getElementById('win-game-popup')) {
+    let popup = document.getElementById('win-game-popup');
+    container.removeChild(popup);
+  }
+
+  startGame();
+}
 
 //Create Cards function
 function createCards () {
@@ -89,11 +226,19 @@ function createCards () {
 // -------------------------------------------------------
 
 function startGame() {
-  CreateCards();
-  console.log('start game');
+  if(!localStorage.getItem('Games')){
+    localStorage.setItem('Games', JSON.stringify([]));
+  }
 
+  shuffle();
   createCards();
+
+  var resetButton = document.getElementById('reset');
+  resetButton.addEventListener('click', reset);
+
+  console.log(CARDS_OBJ);
 }
+
 
 // ------------------------------------------------------
 // Entry Point Storage
@@ -105,4 +250,3 @@ startGame();
 // -------------------------------------------------------
 
 // -------------------------------------------------------
-

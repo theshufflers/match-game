@@ -1,11 +1,31 @@
-#container {
-  border: 1px solid black;
+body {
+  background: #1D65A6;
+}
+
+#container #logo{
+  margin-left: 15%;
+}
+
+#back-button{
+  width: 240%;
+  margin-left: 225%;
 }
 
 header {
+  height: 100px;
   display: flex;
   flex-direction: row;
-  height: 100px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke; 
+}
+
+header h1 {
+  margin-left: 5%;
+  margin-right: 25%;
+  font-size: 72px;
+  color: #F2A104;
 }
 
 header button {
@@ -14,20 +34,115 @@ header button {
 }
 
 #cards-section {
-  margin-top: 50px;
-  border: 1px solid black;
+  margin-top: 10px;
   display: flex; 
   flex-wrap: wrap;
   justify-content: space-between; 
-  margin-right: 300px;
-  margin-left: 300px;
-  
-}
-
-#cards-section img {
- margin-top: 25px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 footer {
   height: 100px;
 }
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+  margin-top: 15px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform .5s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
+
+.flip-card-back {
+  background: grey;
+  transform: rotateY(180deg);
+}
+
+.flip-card-front {
+  background-image:  
+  url('https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif');
+  /* url('https://media.giphy.com/media/2SYpZ92iLQsF6QZl5u/giphy.gif'); */
+  /* url('https://media.giphy.com/media/3oFzlWifRcnogZOs3m/giphy.gif'); */
+  /* url('https://media.giphy.com/media/9g2MtMzYF30WY/giphy.gif'); */
+  /* url('https://media.giphy.com/media/BkjdN6MQCDPaw/giphy.gif') */
+
+  /* bacground-repeat: repeat; */
+  /* background: blue; */
+}
+
+.flip-card-inner.is-flipped {
+  transform: rotateY(180deg); 
+}
+
+.flipped-perm {
+  transform: rotateY(180deg); 
+  border: 3px solid rgb(151, 238, 20);
+  border-radius: 24px;
+}
+
+.dark-div {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: .5;
+  z-index: 1000;
+  border-radius: 20px;
+}
+
+
+#win-game-popup {
+  width: 500px;
+  height: 400px;
+  position: fixed;
+  top: 25%;
+  left: 35%;
+  background-color: #72A2C0;
+  border-radius: 35%;
+}
+
+#win-game-popup h2{
+  margin-top: 15%;
+  width: 70%;
+  margin-left: 20%;
+  font-size: 30px;
+  color: #1D65A6;
+
+}
+
+.gameButtons{
+  border-radius: 50%;
+  background-color: #1D65A6;
+  color: #F2A104;
+  margin-left: 15%;
+  margin-top: 5%;
+  font-size: 32px;
+  height: 20%;
+}
+
+#reset{
+  border-radius: 50%;
+  background-color: #1D65A6;
+  color: #F2A104;
+  margin-left: 40%;
+  margin-top: 5%;
+  font-size: 62px;
+  height: 30%;
+}
+
