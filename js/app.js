@@ -11,6 +11,7 @@ function getGamesArr() {
 
   if (gamesArr) {
     let results = document.getElementById('results');
+    results.setAttribute('class', 'gameResult');
 
     for( var i = 0; i < gamesArr.length; i++){
       let div = document.createElement('div');
