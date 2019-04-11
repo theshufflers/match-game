@@ -138,7 +138,7 @@ function compare() {
 
 function shuffle() {
   // Shuffle DATA
-  console.log('shuffle');
+  console.log('shuffle DATA');
 }
 
 function winGame() {
