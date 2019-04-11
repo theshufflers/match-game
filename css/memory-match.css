@@ -114,4 +114,33 @@ footer {
   top: 25%;
   left: 30%;
   background-color: green;
+  border-radius: 50%;
+  background-color: #72A2C0;
+}
+
+#win-game-popup h2{
+  margin-top: 15%;
+  width: 70%;
+  margin-left: 20%;
+  font-size: 30px;
+  color: #1D65A6;
+
+}
+
+.gameButtons{
+  border-radius: 50%;
+  background-color: #1D65A6;
+  color: #F2A104;
+  margin-left: 15%;
+  margin-top: 10%;
+  font-size: 32px;
+}
+
+#reset{
+  border-radius: 50%;
+  background-color: #1D65A6;
+  color: #F2A104;
+  margin-left: 40%;
+  margin-top: 5%;
+  font-size: 62px;
 }

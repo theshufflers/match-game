@@ -174,10 +174,12 @@ function winGame() {
   div.appendChild(aOne);
 
   let backButton = document.createElement('button');
-  backButton.textContent = 'Back';
+  backButton.setAttribute('class', 'gameButtons');
+  backButton.textContent = 'See Results';
   aOne.appendChild(backButton);
 
   let restartButton = document.createElement('button');
+  restartButton.setAttribute('class', 'gameButtons');
   restartButton.textContent = 'Restart';
   div.appendChild(restartButton);
 
