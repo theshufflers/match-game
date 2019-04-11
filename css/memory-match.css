@@ -114,6 +114,7 @@ footer {
   top: 25%;
   left: 30%;
   background-color: green;
+<<<<<<< Updated upstream
   border-radius: 50%;
   background-color: #72A2C0;
 }
@@ -146,3 +147,6 @@ footer {
   font-size: 62px;
   height: 30%;
 }
+=======
+}
+>>>>>>> Stashed changes
