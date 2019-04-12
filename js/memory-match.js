@@ -170,9 +170,11 @@ function shuffle() {
   }
 }
 
+
 // ------------------------------------------------------
 //  Handles finishing the game
 // -------------------------------------------------------
+
 
 function winGame() {
   //Save stuff to local storage

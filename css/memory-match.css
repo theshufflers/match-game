@@ -99,7 +99,6 @@ footer {
   border-radius: 20px;
 }
 
-
 #win-game-popup {
   width: 500px;
   height: 400px;
@@ -116,7 +115,6 @@ footer {
   margin-left: 20%;
   font-size: 30px;
   color: #1D65A6;
-
 }
 
 .gameButtons{
@@ -144,4 +142,3 @@ footer {
   margin-top: 5px;
   margin-left: 5px;
 }
-
