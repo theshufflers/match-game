@@ -1,44 +1,61 @@
 'use strict';
 
 // ------------------------------------------------------
+//  Global Variables
+// -------------------------------------------------------
+
+var COLORS_ARR = ['rgba(0,128,128, 0.6)', 'rgba(255,0,0, 0.6)', 'rgba(255,255,0, 0.6)', 'rgba(255,0,255, 0.6)', 'rgba(0,116,52, 0.6)', 'rgba(128,0,128, 0.6)'];
+var TOTAL_COLORS = [];
+
+// ------------------------------------------------------
 //  Defined Functions
 // -------------------------------------------------------
 
 function getGamesArr() {
   var gamesArr = JSON.parse(localStorage.getItem('Games'));
 
-  console.log(gamesArr);
-
   if (gamesArr) {
-    let results = document.getElementById('results');
-    results.setAttribute('class', 'gameResult');
+    let resultsList = document.getElementById('resultsList');
+
+    let listContainer = document.createElement('div');
+    listContainer.setAttribute('class', 'gameResult');
+    listContainer.setAttribute('id', 'results');
+    resultsList.appendChild(listContainer);
 
     for( var i = 0; i < gamesArr.length; i++){
       let div = document.createElement('div');
-      results.appendChild(div);
+      listContainer.appendChild(div);
 
       let h2 = document.createElement('h2');
       h2.textContent = `Game: ${i + 1}`;
       div.appendChild(h2);
 
-      let peeks = document.createElement('h3');
+      let list = document.createElement('ol');
+      div.appendChild(list);
+
+      let peeks = document.createElement('li');
       peeks.textContent = `Peeks: ${gamesArr[i][0]}`;
-      div.appendChild(peeks);
+      list.appendChild(peeks);
 
-      let missedGuesses = document.createElement('h3');
+      let missedGuesses = document.createElement('li');
       missedGuesses.textContent = `Missed Guesses: ${gamesArr[i][1]}`;
-      div.appendChild(missedGuesses);
+      list.appendChild(missedGuesses);
 
-      let overallGuesses = document.createElement('h3');
+      let overallGuesses = document.createElement('li');
       overallGuesses.textContent = `overallGuesses: ${gamesArr[i][2]}`;
-      div.appendChild(overallGuesses);
+      list.appendChild(overallGuesses);
     }
 
-    renderChart(gamesArr);
+    renderBarChart(gamesArr);
+    //renderDoughnutChart(gamesArr);
   }
 }
 
-function renderChart(gamesArr) {
+// ------------------------------------------------------
+//  Renders bar chart
+// -------------------------------------------------------
+
+function renderBarChart(gamesArr) {
   const barData = {
     type: 'bar',
     data: {
@@ -46,7 +63,7 @@ function renderChart(gamesArr) {
       datasets : [
         {
           data : [],
-          backgroundColor : ['rgba(0,128,128, 0.6)', 'rgba(255,0,0, 0.6)', 'rgba(255,255,0, 0.6)', 'rgba(255,0,255, 0.6)', 'rgba(0,116,52, 0.6)', 'rgba(128,0,128, 0.6)'],
+          backgroundColor : TOTAL_COLORS,
         }
       ]
     },
@@ -93,9 +110,61 @@ function renderChart(gamesArr) {
 
     barData.data.datasets[0].data.push(points);
   }
+
+  let n = 0;
+
+  while (TOTAL_COLORS.length < gamesArr.length) {
+    if (n === COLORS_ARR.length) {
+      n = 0;
+    }
+
+    TOTAL_COLORS.push(COLORS_ARR[n]);
+
+    n++;
+  }
+
   Chart.defaults.global.defaultFontColor = '#007434';
   Chart.defaults.global.defaultFontSize = '26';
   new Chart(ctx, barData);
 }
+
+// function renderDoughnutChart(gamesArr) {
+//   var data = {
+//     datasets: [{
+//       data: [],
+//       backgroundColor: 'rgba(255,0,0, 0.6)',
+//     }],
+//     labels: []
+//   };
+
+//   for (let i = 0; i < gamesArr.length; i++) {
+//     data.labels.push(`Game: ${i + 1}`);
+
+//     let missedGuesses = gamesArr[i][1];
+//     let overallGuesses = gamesArr[i][2];
+
+//     var match = overallGuesses - missedGuesses;
+//     var matchPercent = Math.ceil(match/overallGuesses * 100);
+
+//     data.datasets[0].data.push(matchPercent);
+//   }
+
+//   console.log(data.datasets[0].data);
+
+//   let container = document.getElementById('pieChart');
+
+//   let canvas = document.createElement('Canvas');
+//   canvas.setAttribute('width', '400px');
+//   canvas.setAttribute('height', '400');
+//   let ctx = canvas.getContext('2d');
+
+//   container.appendChild(canvas);
+
+//   var myDoughnutChart = new Chart(ctx, {
+//     type: 'doughnut',
+//     data: data,
+//     // options: options
+//   });
+// }
 
 getGamesArr();

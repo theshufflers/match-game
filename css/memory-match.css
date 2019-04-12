@@ -78,13 +78,6 @@ footer {
 .flip-card-front {
   background-image:  
   url('https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif');
-  /* url('https://media.giphy.com/media/2SYpZ92iLQsF6QZl5u/giphy.gif'); */
-  /* url('https://media.giphy.com/media/3oFzlWifRcnogZOs3m/giphy.gif'); */
-  /* url('https://media.giphy.com/media/9g2MtMzYF30WY/giphy.gif'); */
-  /* url('https://media.giphy.com/media/BkjdN6MQCDPaw/giphy.gif') */
-
-  /* bacground-repeat: repeat; */
-  /* background: blue; */
 }
 
 .flip-card-inner.is-flipped {
@@ -144,5 +137,11 @@ footer {
   margin-top: 5%;
   font-size: 62px;
   height: 30%;
+  margin-bottom: 70px;
+}
+
+#card-styles {
+  margin-top: 5px;
+  margin-left: 5px;
 }
 
