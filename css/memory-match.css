@@ -38,8 +38,8 @@ header button {
   display: flex; 
   flex-wrap: wrap;
   justify-content: space-between; 
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 700px;
+  margin-left: 700px;
 }
 
 footer {
@@ -131,7 +131,7 @@ footer {
   border-radius: 50%;
   background-color: #1D65A6;
   color: #F2A104;
-  margin-left: 40%;
+  margin-left: 45%;
   margin-top: 5%;
   font-size: 62px;
   height: 30%;
