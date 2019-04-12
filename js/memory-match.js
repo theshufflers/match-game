@@ -41,6 +41,10 @@ function CARDS(id, imageURL, pairId) {
   this.render();
 }
 
+// ------------------------------------------------------
+//  Handles clicking on cards
+// -------------------------------------------------------
+
 CARDS.prototype.toggleSelect = function(event) {
   event.preventDefault();
   var target = event.target;
@@ -70,6 +74,10 @@ CARDS.prototype.toggleSelect = function(event) {
   }
 };
 
+// ------------------------------------------------------
+//  Renders cards
+// -------------------------------------------------------
+
 CARDS.prototype.render = function() {
   var cardsSection = document.getElementById('cards-section');
 
@@ -91,8 +99,21 @@ CARDS.prototype.render = function() {
   img.setAttribute('class', 'flip-card-back');
   divInner.appendChild(img);
 
+  if (localStorage.getItem('background')) {
+    var background = localStorage.getItem('background');
+    var cardsArr = document.getElementsByClassName('flip-card-front');
+
+    for (let i = 0; i < cardsArr.length; i++) {
+      cardsArr[i].style.backgroundImage = background;
+    }
+  }
+
   divInner.addEventListener('click', this.toggleSelect);
 };
+
+// ------------------------------------------------------
+//  Compares two selected cards
+// -------------------------------------------------------
 
 function compare() {
   let firstEl = document.getElementsByClassName('is-flipped')[0];
@@ -119,7 +140,6 @@ function compare() {
 
     counter++;
 
-    // add green border
   } else {
     missedGuesses++;
     firstEl.classList.toggle('is-flipped');
@@ -127,14 +147,16 @@ function compare() {
 
     COMPARE_ARR.shift();
     COMPARE_ARR.shift();
-
-    //shake animation
   }
 
   if (counter === 4) {
     winGame();
   }
 }
+
+// ------------------------------------------------------
+//  Shuffle cards
+// -------------------------------------------------------
 
 function shuffle() {
   for ( var i = 0; i < DATA.length; i++){
@@ -146,8 +168,13 @@ function shuffle() {
     DATA.splice(random,1, cardToShuffle);
     DATA.splice( j, 1, cardReplacedValue);
   }
-  console.log(DATA);
 }
+
+
+// ------------------------------------------------------
+//  Handles finishing the game
+// -------------------------------------------------------
+
 
 function winGame() {
   //Save stuff to local storage
@@ -185,7 +212,10 @@ function winGame() {
   restartButton.addEventListener('click', reset);
 }
 
-//Reset game Event listener - Click
+// ------------------------------------------------------
+//  Reset game event listener
+// -------------------------------------------------------
+
 function reset(){
   // set global variables
   missedGuesses = 0;
@@ -213,7 +243,10 @@ function reset(){
   startGame();
 }
 
-//Create Cards function
+// ------------------------------------------------------
+// Creates card objects
+// -------------------------------------------------------
+
 function createCards () {
   for (var i = 0; i < DATA.length; i++){
     new CARDS(DATA[i][0], DATA[i][1], DATA[i][2], DATA[i][3], DATA[i][4]);
@@ -237,12 +270,46 @@ function startGame() {
 }
 
 // ------------------------------------------------------
+// Changes background
+// -------------------------------------------------------
+
+function handleChangeBackground(event) {
+  event.preventDefault();
+
+  var target = event.target;
+  var url = '';
+
+  var cardsArr = document.getElementsByClassName('flip-card-front');
+  for (let i = 0; i < cardsArr.length; i++) {
+    if (target.id === 'stars') {
+      url = 'url(\'https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif\')';
+    } else if (event.target.id === 'waves') {
+      url = 'url(\'https://media.giphy.com/media/2SYpZ92iLQsF6QZl5u/giphy.gif\')';
+    } else if (event.target.id === 'cubes') {
+      url = 'url(\'https://media.giphy.com/media/3oFzlWifRcnogZOs3m/giphy.gif\')';
+    } else if (event.target.id === 'matrix') {
+      url = 'url(\'https://media.giphy.com/media/9g2MtMzYF30WY/giphy.gif\')';
+    } else if (event.target.id === 'circuit') {
+      url = 'url(\'https://media.giphy.com/media/BkjdN6MQCDPaw/giphy.gif\')';
+    }
+
+    cardsArr[i].style.backgroundImage = url;
+  }
+
+  localStorage.setItem('background', url);
+}
+
+// ------------------------------------------------------
+// Click listeners for background change
+// -------------------------------------------------------
+
+document.getElementById('stars').addEventListener('click', handleChangeBackground);
+document.getElementById('waves').addEventListener('click', handleChangeBackground);
+document.getElementById('cubes').addEventListener('click', handleChangeBackground);
+document.getElementById('matrix').addEventListener('click', handleChangeBackground);
+document.getElementById('circuit').addEventListener('click', handleChangeBackground);
+
+// ------------------------------------------------------
 // Entry Point Storage
 // -------------------------------------------------------
 startGame();
-
-// ------------------------------------------------------
-// Local Storage
-// -------------------------------------------------------
-
-// -------------------------------------------------------
