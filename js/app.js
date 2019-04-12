@@ -46,7 +46,7 @@ function renderChart(gamesArr) {
       datasets : [
         {
           data : [],
-          backgroundColor : ['rgba(0,128,128, 0.6)', 'rgba(255,0,0, .0.6)', 'rgba(255,255,0, 0.6)', 'rgba(255,0,255, 0.6)', 'rgba(0,116,52, 0.6)', 'rgba(128,0,128, 0.6)'],
+          backgroundColor : ['rgba(0,128,128, 0.6)', 'rgba(255,0,0, 0.6)', 'rgba(255,255,0, 0.6)', 'rgba(255,0,255, 0.6)', 'rgba(0,116,52, 0.6)', 'rgba(128,0,128, 0.6)'],
         }
       ]
     },
@@ -77,7 +77,7 @@ function renderChart(gamesArr) {
 
   let canvas = document.createElement('Canvas');
   canvas.setAttribute('width', '1000px');
-  canvas.setAttribute('height', '500');
+  canvas.setAttribute('height', '800');
   let ctx = canvas.getContext('2d');
 
   container.appendChild(canvas);
@@ -93,8 +93,8 @@ function renderChart(gamesArr) {
 
     barData.data.datasets[0].data.push(points);
   }
-  Chart.defaults.global.defaultFontColor = '#F2A104';
-  Chart.defaults.global.defaultFontSize = '16';
+  Chart.defaults.global.defaultFontColor = '#007434';
+  Chart.defaults.global.defaultFontSize = '26';
   new Chart(ctx, barData);
 }
 
