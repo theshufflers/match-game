@@ -111,8 +111,9 @@ footer {
   height: 400px;
   position: fixed;
   top: 25%;
-  left: 30%;
-  background-color: green;
+  left: 35%;
+  background-color: #72A2C0;
+  border-radius: 35%;
 }
 
 #win-game-popup h2{
