@@ -42,7 +42,7 @@ function getGamesArr() {
       list.appendChild(missedGuesses);
 
       let overallGuesses = document.createElement('li');
-      overallGuesses.textContent = `overallGuesses: ${gamesArr[i][2]}`;
+      overallGuesses.textContent = `Overall Guesses: ${gamesArr[i][2]}`;
       list.appendChild(overallGuesses);
     }
 
@@ -123,48 +123,9 @@ function renderBarChart(gamesArr) {
     n++;
   }
 
-  Chart.defaults.global.defaultFontColor = '#007434';
+  Chart.defaults.global.defaultFontColor = 'whitesmoke';
   Chart.defaults.global.defaultFontSize = '26';
   new Chart(ctx, barData);
 }
-
-// function renderDoughnutChart(gamesArr) {
-//   var data = {
-//     datasets: [{
-//       data: [],
-//       backgroundColor: 'rgba(255,0,0, 0.6)',
-//     }],
-//     labels: []
-//   };
-
-//   for (let i = 0; i < gamesArr.length; i++) {
-//     data.labels.push(`Game: ${i + 1}`);
-
-//     let missedGuesses = gamesArr[i][1];
-//     let overallGuesses = gamesArr[i][2];
-
-//     var match = overallGuesses - missedGuesses;
-//     var matchPercent = Math.ceil(match/overallGuesses * 100);
-
-//     data.datasets[0].data.push(matchPercent);
-//   }
-
-//   console.log(data.datasets[0].data);
-
-//   let container = document.getElementById('pieChart');
-
-//   let canvas = document.createElement('Canvas');
-//   canvas.setAttribute('width', '400px');
-//   canvas.setAttribute('height', '400');
-//   let ctx = canvas.getContext('2d');
-
-//   container.appendChild(canvas);
-
-//   var myDoughnutChart = new Chart(ctx, {
-//     type: 'doughnut',
-//     data: data,
-//     // options: options
-//   });
-// }
 
 getGamesArr();

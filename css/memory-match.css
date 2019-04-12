@@ -142,3 +142,13 @@ footer {
   margin-top: 5px;
   margin-left: 5px;
 }
+
+.background-button {
+  color: #F2A104;
+  background-color: #1D65A6;
+  border-radius: 15px;
+  width: 100px;
+  height: 50px;
+  font-size: 22px;
+  outline: none;
+}
