@@ -122,7 +122,7 @@ a:hover{
   margin-top: 1%;
 }
 
-#matchGameSummary article h3 {
+#matchGameSummary article li {
   font-size: 52px;
 }
 
@@ -180,7 +180,7 @@ footer {
   justify-content: space-evenly;
   align-items: center;  
   background-color: whitesmoke;
-  margin-top: 20%;
+  margin-top: 50px;
 }
 
 footer a{
@@ -200,11 +200,16 @@ i.fab.fa-github{
   font-size: 90px;
 }
 
+#resultsList {
+  display: inline-block;
+  margin-right: 10%;
+}
+
 #results {
   display: inline-block;
   width: 200px;
-  height: 300px;
-  margin-right: 10%;
+  height: 400px;
+  padding-left: 5px;
   background-color: #72A2C0;
   margin-left: 40px;
   color: #007434;
@@ -212,16 +217,33 @@ i.fab.fa-github{
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
+  border-radius: 15px;
 }
 
 #results h2{
   font-size: 26px;
   font-weight: bold;
+  margin-top: 10px;
+}
+
+#results ol {
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+#results li {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-top: 2px;
 }
 
 #graph {
   height: auto;
   width: 600px;
+  display: inline-block;
+}
+
+#pieChart {
   display: inline-block;
 }
 
