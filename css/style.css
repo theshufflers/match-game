@@ -18,8 +18,8 @@ header {
 
 header h1 {
   margin-left: 5%;
-  margin-right: 25%;
-  font-size: 72px;
+  margin-right: 20%;
+  font-size: 56px;
   color: #F2A104;
 }
 
@@ -58,7 +58,7 @@ a:hover{
   display: inline-block;
   position: absolute;
   top: 120px;
-  right: 35px;
+  right: -1px;
 }
 
 #index-card{
@@ -112,8 +112,9 @@ a:hover{
 
 #matchGameSummary h2{
   color:#1D65A6;
-  font-size: 76px;
-  margin-left: 25%;
+  font-size: 56px;
+  margin-top: 7%;
+  margin-bottom: 3%;
 }
 
 #matchGameSummary article {
@@ -167,7 +168,7 @@ a:hover{
   width: 350%;
   border-radius: 50%;
   font-size: 30px;
-  margin-left: -130%;
+  margin-left: -120%;
   margin-top: -150%;
 }
 
@@ -250,8 +251,33 @@ Canvas {
 /* Responsive Screen Size CSS Rules */
 
 @media screen and (max-width: 700px) {
-  body {
-    background-color: pink;
+
+  header {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+  }
+
+  header h1 {
+    margin-left: 5%;
+    margin-right: 25%;
+    font-size: 62px;
+    color: #F2A104;
+  }
+  
+  nav a{
+    text-decoration: none;
+    margin-left: 50px;
+    color: #F2A104;
+    font-size: 32px;
+  }
+  
+  a:hover{
+    color: #007434;
   }
 
   #matchGameSummary {
@@ -261,27 +287,63 @@ Canvas {
     margin: 10% 20%;
     background-color: #72A2C0;
     border-radius: 40%;
-    height: 85%;
     width: 75%; 
   }
 
   #matchGameSummary h2 {
-    margin: 10% 10%;
     color: #1D65A6;
-    font-size: 36px;
+    font-size: 40px;
   }
+}
+
+#card-section{
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  position: absolute;
+  top: 105px;
+}
+
+#matchGameSummary article {
+  margin-left: 10%;
+  margin-top: 3%;
+}
+
+#matchGameSummary article li {
+  font-size: 52px;
+}
+
+#matchGameSummary article p {
+  font-size: 26px;
+  color: whitesmoke;
+}
+
+#gameStart button{
+  background-color: #72A2C0;
+  color: #F2A104;
+  height: 120px;
+  width: 350%;
+  border-radius: 50%;
+  font-size: 30px;
+  margin-left: -120%;
+  margin-top: -150%;
 }
 
 #results {
   display: inline-block;
-  width: 200px;
+  width: 120%;
   height: 450px;
-  margin-right: 10%;
   background-color: #72A2C0;
-  margin-left: 640px;
+  margin-bottom: 10%;
   color: whitesmoke;
   font-size: 20px;
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
+}
+
+Canvas {
+  background-color: #72A2C0;
+  border-radius: 15px;
+  margin-left: 10%;
 }
