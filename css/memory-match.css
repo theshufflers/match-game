@@ -34,12 +34,9 @@ header button {
 }
 
 #cards-section {
-  margin-top: 10px;
   display: flex; 
   flex-wrap: wrap;
   justify-content: space-between; 
-  margin-right: 700px;
-  margin-left: 700px;
 }
 
 footer {
